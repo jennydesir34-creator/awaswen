@@ -149,6 +149,32 @@
 </article>
 
 
+<div class="formation-achat">
+  <h3>Prendre soin de soi, un jour à la fois</h3>
+  <p>Accède à la formation et avance à ton rythme.</p>
+
+  <button
+    type="button"
+    onclick="preparerAchat('formation-bien-etre')">
+    Acheter cette formation
+  </button>
+
+  <p id="message-paiement" role="status"></p>
+</div>
+
+<script>
+  function preparerAchat(formationId) {
+    const message = document.getElementById(
+      "message-paiement"
+    );
+
+    message.textContent =
+      "La formation a été sélectionnée. " +
+      "Le paiement sécurisé sera disponible " +
+      "après la configuration de Tranzak.";
+  }
+</script>
+
 </section>
 
 
