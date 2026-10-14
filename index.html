@@ -97,6 +97,20 @@
     <p><strong>Objectif :</strong> Développer de petites habitudes pour prendre soin de soi.</p>
   </article>
 
+<button
+  type="button"
+  onclick="preparerAchat('formation-bien-etre')">
+  Acheter cette formation
+</button>
+<p id="message-paiement" role="status"></p>
+
+<script>
+  function preparerAchat(formationId) {
+    document.getElementById("message-paiement").textContent =
+      "Le paiement sécurisé sera disponible après la configuration de Tranzak.";
+  }
+</script>
+
   <article>
     <h3>2. Comprendre ses émotions</h3>
     <p>Découvre les émotions, leurs rôles et des moyens sains de les exprimer.</p>
