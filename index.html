@@ -123,10 +123,40 @@
 <p id="message-paiement" role="status"></p>
 
 <script>
-  function preparerAchat(formationId) {
-    document.getElementById("message-paiement").textContent =
-      "Le paiement sécurisé sera disponible après la configuration de Tranzak.";
+  
+function preparerAchat(formationId) {
+  const formations = {
+    "formation-bien-etre": {
+      nom: "Prendre soin de soi, un jour à la fois",
+      prix: 500
+    },
+    "formation-emotions": {
+      nom: "Comprendre ses émotions",
+      prix: 750
+    },
+    "formation-estime": {
+      nom: "Renforcer son estime de soi",
+      prix: 1000
+    },
+    "formation-confiance": {
+      nom: "Développer sa confiance en soi",
+      prix: 1500
+    }
+  };
+
+  const formation = formations[formationId];
+  const message = document.getElementById("message-paiement");
+
+  if (!formation || !message) {
+    return;
   }
+
+  message.textContent =
+    "Formation sélectionnée : " + formation.nom +
+    " — Prix : " + formation.prix.toLocaleString("fr-FR") +
+    " HTG. Le paiement sécurisé sera disponible après la configuration de Tranzak.";
+}
+
 </script>
 
   <article>
