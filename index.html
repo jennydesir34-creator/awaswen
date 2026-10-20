@@ -2,6 +2,107 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <style>
+  :root {
+    --awa-turquoise: #16b8ad;
+    --awa-dark: #087f78;
+    --awa-mint: #e4f8f3;
+    --awa-white: #ffffff;
+    --awa-text: #263b3a;
+    --awa-muted: #708582;
+  }
+
+  body {
+    margin: 0;
+    background: #f4faf8;
+    color: var(--awa-text);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  header, main, section {
+    box-sizing: border-box;
+  }
+
+  header {
+    background: var(--awa-white);
+    padding: 18px 20px;
+    box-shadow: 0 2px 12px rgba(0, 80, 70, 0.07);
+  }
+
+  h1, h2, h3 {
+    line-height: 1.3;
+  }
+
+  h1 {
+    color: var(--awa-dark);
+  }
+
+  h2 {
+    color: var(--awa-dark);
+  }
+
+  main {
+    width: min(100% - 32px, 900px);
+    margin: 24px auto 90px;
+  }
+
+  section, article {
+    margin-bottom: 22px;
+  }
+
+  article {
+    background: var(--awa-white);
+    border: 1px solid #e2f0ec;
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: 0 5px 18px rgba(0, 80, 70, 0.05);
+  }
+
+  button {
+    background: var(--awa-turquoise);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 13px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: var(--awa-dark);
+  }
+
+  a {
+    color: var(--awa-dark);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 600px) {
+    header {
+      padding: 15px;
+    }
+
+    main {
+      width: calc(100% - 24px);
+      margin-top: 16px;
+    }
+
+    article {
+      padding: 17px;
+      border-radius: 16px;
+    }
+
+    button {
+      max-width: 100%;
+    }
+  }
+</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="AwaSwen, un espace de formation et de ressources pour prendre soin de soi.">
