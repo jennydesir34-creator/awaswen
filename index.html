@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#087f83">
 <meta name="description" content="AwaSwen : apprenez, grandissez et prenez soin de votre bien-être à votre rythme.">
-<title>AwaSwen | Apprendre, grandir, s'épanouir</title>
+<title>AwaSwen | Apprendre, grandir, s'épanouir</
+<style>/* ===== ESPACE ADMIN AWASWEN ===== */
 
-/* ===== ESPACE ADMIN AWASWEN ===== */
 .admin-panel {
   max-width: 1000px;
   margin: 30px auto;
@@ -17,11 +17,16 @@
   border: 1px solid #d8ebe3;
   border-radius: 20px;
   color: #214a43;
+  box-sizing: border-box;
 }
 
 .admin-panel h2 {
   margin-top: 0;
   color: #087f83;
+}
+
+.admin-panel h3 {
+  color: #214a43;
 }
 
 .admin-form {
@@ -62,12 +67,17 @@
   cursor: pointer;
 }
 
+.admin-button:hover {
+  background: #06696c;
+}
+
 .admin-course-item {
   padding: 14px;
   margin-top: 12px;
   border: 1px solid #d8ebe3;
   border-radius: 12px;
   background: white;
+  overflow-wrap: anywhere;
 }
 
 .admin-note {
@@ -76,8 +86,21 @@
   line-height: 1.6;
 }
 
-<style>
-  
+.admin-message {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #e3f6f0;
+  color: #214a43;
+}
+
+@media (max-width: 600px) {
+  .admin-panel {
+    margin: 18px 12px;
+    padding: 16px;
+  }
+}
+
 /* ===== AWASWEN : ACCUEIL ET MENU PROFESSIONNELS ===== */
 .awaswen-home {
   padding: 24px 16px;
