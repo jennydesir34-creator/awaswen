@@ -1,542 +1,589 @@
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <style>
-  :root {
-    --awa-turquoise: #16b8ad;
-    --awa-dark: #087f78;
-    --awa-mint: #e4f8f3;
-    --awa-white: #ffffff;
-    --awa-text: #263b3a;
-    --awa-muted: #708582;
-  } il
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087f78">
+<title>AwaSwen | Prendre soin de soi</title>
 
-  body {
-    margin: 0;
-    background: #f4faf8;
-    color: var(--awa-text);
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-  }
-
-  header, main, section {
-    box-sizing: border-box;
-  }
-
-  header {
-    background: var(--awa-white);
-    padding: 18px 20px;
-    box-shadow: 0 2px 12px rgba(0, 80, 70, 0.07);
-  }
-
-  h1, h2, h3 {
-    line-height: 1.3;
-  }
-
-  h1 {
-    color: var(--awa-dark);
-  }
-
-  h2 {
-    color: var(--awa-dark);
-  }
-
-  main {
-    width: min(100% - 32px, 900px);
-    margin: 24px auto 90px;
-  }
-
-  section, article {
-    margin-bottom: 22px;
-  }
-
-  article {
-    background: var(--awa-white);
-    border: 1px solid #e2f0ec;
-    border-radius: 20px;
-    padding: 22px;
-    box-shadow: 0 5px 18px rgba(0, 80, 70, 0.05);
-  }
-
-  button {
-    background: var(--awa-turquoise);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 13px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background: var(--awa-dark);
-  }
-
-  a {
-    color: var(--awa-dark);
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  @media (max-width: 600px) {
-    header {
-      padding: 15px;
-    }
-
-    main {
-      width: calc(100% - 24px);
-      margin-top: 16px;
-    }
-
-    article {
-      padding: 17px;
-      border-radius: 16px;
-    }
-
-    button {
-      max-width: 100%;
-    }
-  }
-</style>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AwaSwen, un espace de formation et de ressources pour prendre soin de soi.">
-  <title>AwaSwen | Prendre soin de soi</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f8f5;
-      color: #263d35;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #245b49;
-      color: white;
-      padding: 24px 18px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
-
-    main {
-      max-width: 700px;
-      margin: auto;
-      padding: 24px 16px;
-    }
-
-    .welcome, .section {
-      background: white;
-      padding: 22px;
-      border-radius: 14px;
-      margin-bottom: 18px;
-      box-shadow: 0 2px 8px #00000010;
-    }
-
-    .welcome {
-      text-align: center;
-    }
-
-    h2 {
-      color: #245b49;
-    }
-
-    a.button {
-      display: inline-block;
-      background: #245b49;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-top: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #52665d;
-      font-size: 14px;
-    }
-    
-    /* Accueil moderne AwaSwen */
-    header {
-      background: linear-gradient(135deg, #087f78, #16b8ad);
-      color: white;
-      padding: 30px 18px;
-      text-align: center;
-      border-radius: 0 0 28px 28px;
-    }
-
-    header h1 {
-      color: white;
-      font-size: 34px;
-      margin-bottom: 5px;
-    }
-
-    header p {
-      margin-top: 5px;
-      color: white;
-    }
-
-    .welcome {
-      background: linear-gradient(145deg, #e4f8f3, #ffffff);
-      border: 1px solid #d4eee7;
-      border-radius: 24px;
-      padding: 30px 22px;
-      text-align: left;
-      box-shadow: 0 8px 24px rgba(8, 127, 120, 0.08);
-    }
-
-    .welcome h2 {
-      font-size: 27px;
-      color: #087f78;
-    }
-
-    .welcome p {
-      color: #52665d;
-      font-size: 16px;
-    }
-
-    a.button {
-      display: inline-block;
-      background: #16b8ad;
-      color: white;
-      padding: 13px 20px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 12px;
-      box-shadow: 0 4px 12px rgba(8, 127, 120, 0.15);
-    }
-
-    .section {
-      border: 1px solid #e2f0ec;
-      border-radius: 22px;
-      box-shadow: 0 5px 18px rgba(0, 80, 70, 0.05);
-    }
-
-    .section h2 {
-      color: #087f78;
-    }
-
-    article {
-      border-radius: 20px;
-      border: 1px solid #e2f0ec;
-    }
-
-    button {
-      background: #16b8ad;
-      border-radius: 12px;
-    }
-
-/* Cartes de formation AwaSwen */
-#formations > article,
-#formations > .formation-achat {
-  background: #ffffff;
-  border: 1px solid #dcefe9;
-  border-radius: 20px;
-  padding: 22px;
-  margin: 20px 0;
-  box-shadow: 0 6px 20px rgba(8, 127, 120, 0.07);
+<style>
+:root {
+  --teal: #087f78;
+  --teal-dark: #075c57;
+  --mint: #e7f6f1;
+  --dark: #173b39;
+  --text: #435653;
+  --white: #ffffff;
+  --bg: #f5faf8;
+  --border: #dceae5;
 }
-
-#formations article h3,
-#formations .formation-achat h3 {
-  color: #087f78;
-  font-size: 20px;
-  margin-top: 0;
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
 }
-
-#formations article p {
-  color: #52665d;
+header {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-
-#formations article strong {
-  color: #087f78;
+.brand {
+  color: var(--teal);
+  font-size: 27px;
+  font-weight: 800;
+  text-decoration: none;
 }
-
-#formations button {
+nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+nav a {
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+nav a:hover { color: var(--teal); }
+button, .button {
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 17px;
+  background: var(--teal);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 14px;
+}
+button:hover, .button:hover { background: var(--teal-dark); }
+button.secondary, .button.secondary {
+  background: var(--mint);
+  color: var(--teal-dark);
+}
+select, input, textarea {
   width: 100%;
-  max-width: 320px;
-  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid #cbded6;
+  border-radius: 9px;
+  font: inherit;
+  background: white;
 }
-
-#formations ul {
-  padding-left: 20px;
+#language { width: auto; min-width: 115px; }
+main { max-width: 1120px; margin: auto; padding: 25px 18px; }
+.hero {
+  background: linear-gradient(135deg, #dff4eb, #f5fbf8);
+  border-radius: 24px;
+  padding: 55px 7%;
+  margin-bottom: 35px;
 }
-
-  </style>
+.eyebrow {
+  color: var(--teal);
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  font-size: 12px;
+}
+.hero h1 {
+  color: var(--dark);
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.18;
+  max-width: 720px;
+  margin: 14px 0;
+}
+.hero p { max-width: 680px; }
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 18px;
+}
+.section { margin: 38px 0; }
+.section h2, .panel h2 { color: var(--dark); font-size: 28px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 22px;
+  box-shadow: 0 6px 20px #173b3909;
+}
+.card h3 { color: var(--dark); line-height: 1.4; }
+.card p { font-size: 14px; }
+.course-icon {
+  font-size: 30px;
+  background: var(--mint);
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+}
+.price {
+  color: var(--teal);
+  font-size: 23px !important;
+  font-weight: 800;
+  margin: 12px 0 0;
+}
+.price-usd { color: #71817b; font-size: 12px !important; }
+.buy-button { width: 100%; margin: 12px 0 5px; }
+.panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 24px;
+  margin: 25px 0;
+}
+.hidden { display: none !important; }
+label { display: block; font-weight: 700; margin: 13px 0 5px; }
+.notice {
+  background: #fff7df;
+  border: 1px solid #f1e4b6;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 14px;
+}
+.success-note {
+  background: var(--mint);
+  border-radius: 10px;
+  padding: 14px;
+}
+footer {
+  background: white;
+  border-top: 1px solid var(--border);
+  padding: 30px 18px;
+  text-align: center;
+  margin-top: 40px;
+}
+footer .brand { font-size: 24px; }
+.small { color: #71817b; font-size: 12px; }
+hr { border: 0; border-top: 1px solid var(--border); margin: 20px 0; }
+@media(max-width:650px) {
+  header { position: static; }
+  nav { gap: 12px; }
+  .hero { padding: 34px 23px; }
+  nav a { font-size: 13px; }
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>AwaSwen</h1>
-    <p>Un espace pour apprendre et prendre soin de soi</p>
-  </header>
+<header>
+  <a class="brand" href="#accueil">AwaSwen</a>
+  <nav>
+    <a href="#accueil" data-i18n="navHome">Accueil</a>
+    <a href="#formations" data-i18n="navCourses">Formations</a>
+    <a href="#ressources" data-i18n="navResources">Ressources</a>
+    <a href="#espace" data-i18n="navSpace">Mon espace</a>
+    <select id="language" aria-label="Language">
+      <option value="fr">Français</option>
+      <option value="ht">Kreyòl ayisyen</option>
+      <option value="en">English</option>
+    </select>
+  </nav>
+</header>
 
-  <main>
-    
+<main>
+  <section class="hero" id="accueil">
+    <div class="eyebrow" data-i18n="eyebrow">TON ESPACE DE BIEN-ÊTRE</div>
+    <h1 data-i18n="heroTitle">Prends soin de toi, un jour à la fois.</h1>
+    <p data-i18n="heroText">
+      Apprends à mieux te connaître, à comprendre tes émotions et à développer ta confiance, à ton rythme.
+    </p>
+    <div class="actions">
+      <a class="button" href="#formations" data-i18n="discover">Découvrir les formations</a>
+      <button class="secondary" type="button" onclick="showPanel('auth')" data-i18n="createAccount">Créer un compte</button>
+    </div>
+  </section>
 
-<section class="welcome">
-  <h2>Bienvenue sur AwaSwen</h2>
+  <section class="section" id="formations">
+    <h2 data-i18n="coursesTitle">Nos formations</h2>
+    <p data-i18n="coursesIntro">Des parcours accessibles pour apprendre et avancer à ton rythme.</p>
+    <div class="grid" id="course-list"></div>
+  </section>
 
-  <p>
-    Un espace pour apprendre, grandir et prendre soin de soi.
-  </p>
+  <section class="section" id="ressources">
+    <h2 data-i18n="resourcesTitle">Ressources gratuites</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="course-icon">🌿</div>
+        <h3 data-i18n="resource1Title">Prendre une pause</h3>
+        <p data-i18n="resource1Text">
+          Respire lentement, observe ce que tu ressens et accorde-toi quelques minutes.
+        </p>
+      </article>
+      <article class="card">
+        <div class="course-icon">📔</div>
+        <h3 data-i18n="resource2Title">Écrire ses émotions</h3>
+        <p data-i18n="resource2Text">
+          Note ce que tu ressens sans te juger. Tu n'as pas besoin de tout résoudre aujourd'hui.
+        </p>
+      </article>
+      <article class="card">
+        <div class="course-icon">🌱</div>
+        <h3 data-i18n="resource3Title">Avancer à son rythme</h3>
+        <p data-i18n="resource3Text">
+          Les petits pas comptent aussi. Donne-toi le droit d'apprendre et de recommencer.
+        </p>
+      </article>
+    </div>
+  </section>
 
-  <p>
-    Découvre des formations et des ressources pour mieux comprendre
-    tes émotions, renforcer ton estime personnelle et développer
-    des habitudes favorables à ton bien-être.
-  </p>
+  <section class="panel" id="espace">
+    <h2 data-i18n="spaceTitle">Ton espace personnel</h2>
+    <p data-i18n="spaceText">
+      Connecte-toi pour accéder à ton futur espace apprenant et suivre tes formations.
+    </p>
+    <div class="actions">
+      <button type="button" onclick="showPanel('auth')" data-i18n="login">Se connecter</button>
+      <button type="button" class="secondary" onclick="showPanel('auth', true)" data-i18n="createAccount">Créer un compte</button>
+    </div>
+  </section>
 
-  <a class="button" href="#formations">
-    Découvrir nos formations →
-  </a>
-</section>
+  <section class="panel hidden" id="auth">
+    <h2 data-i18n="accountTitle">Mon compte</h2>
+    <p class="notice" data-i18n="accountNotice">
+      Les comptes en ligne seront activés après la configuration de la base de données sécurisée.
+    </p>
+    <label for="auth-mode" data-i18n="actionLabel">Action</label>
+    <select id="auth-mode">
+      <option value="signup" data-i18n="createAccount">Créer un compte</option>
+      <option value="login" data-i18n="login">Se connecter</option>
+    </select>
+    <form id="auth-form">
+      <label for="email" data-i18n="emailLabel">Adresse e-mail</label>
+      <input id="email" type="email" autocomplete="email" required>
+      <label for="password" data-i18n="passwordLabel">Mot de passe</label>
+      <input id="password" type="password" minlength="8" autocomplete="new-password" required>
+      <div class="actions">
+        <button type="submit" data-i18n="continue">Continuer</button>
+        <button type="button" class="secondary" onclick="hidePanel('auth')" data-i18n="close">Fermer</button>
+      </div>
+      <p id="auth-message" role="status"></p>
+    </form>
+  </section>
 
-    Un espace pour apprendre, grandir et prendre soin de soi.
-  </p>
+  <section class="panel hidden" id="learner">
+    <h2 data-i18n="learnerTitle">Mon espace apprenant</h2>
+    <p data-i18n="learnerText">
+      Bienvenue ! Cet espace est une démonstration en attendant la connexion sécurisée.
+    </p>
+    <div id="my-courses"></div>
+    <button class="secondary" onclick="hidePanel('learner')" data-i18n="close">Fermer</button>
+  </section>
 
-  <p>
-    Découvre des formations et des ressources pour mieux comprendre
-    tes émotions, renforcer ton estime personnelle et développer
-    des habitudes favorables à ton bien-être.
-  </p>
+  <section class="panel" id="payment-info">
+    <h2 data-i18n="paymentTitle">Paiement des formations</h2>
+    <p data-i18n="paymentText">
+      Tranzak n'est pas encore activé. Aucun paiement ne sera prélevé depuis cette page.
+    </p>
+  </section>
 
-  <a class="button" href="#formations">
-    Découvrir nos formations →
-  </a>
-</section>
+  <section class="panel">
+    <h2 data-i18n="adminTitle">Espace administrateur</h2>
+    <p data-i18n="adminText">
+      L'administration sécurisée sera connectée à la base de données. Elle permettra de gérer les formations, les tarifs et les apprenants.
+    </p>
+    <p class="small" data-i18n="adminWarning">
+      Cet aperçu n'est pas un portail administrateur sécurisé. Ne place pas de mot de passe administrateur ou de clé secrète dans ce fichier.
+    </p>
+  </section>
+</main>
 
-    
-<section class="section" id="formations">
-  
-  <h2>Nos formations</h2>
-  
-  <p>Découvre les formations AwaSwen conçues pour t'aider à mieux te connaître,
-  comprendre tes émotions, renforcer ton estime personnelle et développer
-  des habitudes favorables à ton bien-être. Grâce à des contenus structurés,
-  des exercices pratiques et des activités de réflexion, avance à ton rythme
-  et développe des compétences que tu pourras appliquer dans ta vie quotidienne.
-</p>
-  
-
-  <button type="button" onclick="alert('Le paiement en ligne sera bientôt disponible. Aucun paiement ne sera effectué pour le moment.')">
-  Acheter cette formation
-</button>
-  
-  <article>
-    
-    <h3>1. Prendre soin de soi, un jour à la fois</h3>
-    <p><strong>Choisis ta formule :</strong></p>
-<ul>
-    <p> Cette formation t'accompagne dans une démarche progressive de connaissance
-  de soi et de bien-être personnel. Tu apprendras à reconnaître tes besoins,
-  à identifier les signes de fatigue, à mieux comprendre ce qui influence
-  ton équilibre émotionnel et à intégrer des habitudes simples pour prendre
-  soin de toi au quotidien. À travers des réflexions guidées et des exercices
-  pratiques, tu pourras construire une routine adaptée à ta réalité, respecter
-  tes limites et accorder davantage d'importance à ton bien-être, sans rechercher
-  la perfection.
-</p>
-    <p><strong>Objectif :</strong> Développer de petites habitudes pour prendre soin de soi.</p>
-  </article>
-
-<button
-  type="button"
-  onclick="preparerAchat('formation-bien-etre')">
-  Acheter cette formation
-</button>
-<p id="message-paiement" role="status"></p>
+<footer>
+  <a href="#accueil" class="brand">AwaSwen</a>
+  <p data-i18n="footerText">Apprendre, grandir et prendre soin de soi.</p>
+  <p class="small">© <span id="year"></span> AwaSwen</p>
+</footer>
 
 <script>
-  
-
-function preparerAchat(formationId) {
-  const formations = {
-    "formation-bien-etre": {
-      nom: "Prendre soin de soi, un jour à la fois",
-      prix: 500
-    },
-    "formation-emotions": {
-      nom: "Comprendre ses émotions",
-      prix: 750
-    },
-    "formation-estime": {
-      nom: "Renforcer son estime de soi",
-      prix: 1000
-    },
-    "formation-confiance": {
-      nom: "Développer sa confiance en soi",
-      prix: 1500
-    }
-  };
-
-  const formation = formations[formationId];
-
-  if (!formation) {
-    alert("Formation introuvable. Vérifie le bouton sélectionné.");
-    return;
+const translations = {
+  fr: {
+    navHome:"Accueil", navCourses:"Formations", navResources:"Ressources",
+    navSpace:"Mon espace", eyebrow:"TON ESPACE DE BIEN-ÊTRE",
+    heroTitle:"Prends soin de toi, un jour à la fois.",
+    heroText:"Apprends à mieux te connaître, à comprendre tes émotions et à développer ta confiance, à ton rythme.",
+    discover:"Découvrir les formations", createAccount:"Créer un compte",
+    coursesTitle:"Nos formations", coursesIntro:"Des parcours accessibles pour apprendre et avancer à ton rythme.",
+    resourcesTitle:"Ressources gratuites", resource1Title:"Prendre une pause",
+    resource1Text:"Respire lentement, observe ce que tu ressens et accorde-toi quelques minutes.",
+    resource2Title:"Écrire ses émotions",
+    resource2Text:"Note ce que tu ressens sans te juger. Tu n'as pas besoin de tout résoudre aujourd'hui.",
+    resource3Title:"Avancer à son rythme",
+    resource3Text:"Les petits pas comptent aussi. Donne-toi le droit d'apprendre et de recommencer.",
+    spaceTitle:"Ton espace personnel",
+    spaceText:"Connecte-toi pour accéder à ton futur espace apprenant et suivre tes formations.",
+    login:"Se connecter", accountTitle:"Mon compte",
+    accountNotice:"Les comptes en ligne seront activés après la configuration de la base de données sécurisée.",
+    actionLabel:"Action", emailLabel:"Adresse e-mail", passwordLabel:"Mot de passe",
+    continue:"Continuer", close:"Fermer",
+    learnerTitle:"Mon espace apprenant",
+    learnerText:"Bienvenue ! Cet espace est une démonstration en attendant la connexion sécurisée.",
+    paymentTitle:"Paiement des formations",
+    paymentText:"Tranzak n'est pas encore activé. Aucun paiement ne sera prélevé depuis cette page.",
+    adminTitle:"Espace administrateur",
+    adminText:"L'administration sécurisée sera connectée à la base de données. Elle permettra de gérer les formations, les tarifs et les apprenants.",
+    adminWarning:"Cet aperçu n'est pas un portail administrateur sécurisé. Ne place pas de mot de passe administrateur ou de clé secrète dans ce fichier.",
+    footerText:"Apprendre, grandir et prendre soin de soi.",
+    buy:"Acheter cette formation", paymentPending:"Paiement en attente de configuration",
+    usdApprox:"Taux indicatif seulement", purchaseMessage:"Tu as choisi",
+    priceLabel:"Prix", notActive:"Le paiement réel n'est pas encore activé.",
+    authDemo:"La connexion sécurisée n'est pas encore configurée. Aucun compte n'a été créé.",
+    lessonPrefix:"Formation", lessonStatus:"Pas encore commencée",
+    course1:"Prendre soin de soi, un jour à la fois",
+    desc1:"Comprendre tes émotions, respecter tes besoins et avancer avec douceur.",
+    course2:"Comprendre ses émotions",
+    desc2:"Apprends à reconnaître tes émotions et à mieux les exprimer.",
+    course3:"Renforcer son estime de soi",
+    desc3:"Découvre tes forces et apprends à reconnaître ta valeur.",
+    course4:"Développer sa confiance en soi",
+    desc4:"Développe ton assurance et avance vers tes objectifs."
+  },
+  ht: {
+    navHome:"Akèy", navCourses:"Fòmasyon", navResources:"Resous",
+    navSpace:"Espas mwen", eyebrow:"ESPAS BYENNÈT OU",
+    heroTitle:"Pran swen tèt ou, yon jou alafwa.",
+    heroText:"Aprann konnen tèt ou pi byen, konprann emosyon ou epi devlope konfyans nan tèt ou, nan ritm pa ou.",
+    discover:"Dekouvri fòmasyon yo", createAccount:"Kreye yon kont",
+    coursesTitle:"Fòmasyon nou yo", coursesIntro:"Pwogram ki aksesib pou ede w aprann epi avanse nan ritm pa ou.",
+    resourcesTitle:"Resous gratis", resource1Title:"Pran yon ti poz",
+    resource1Text:"Respire dousman, remake sa w ap santi epi bay tèt ou kèk minit.",
+    resource2Title:"Ekri emosyon ou yo",
+    resource2Text:"Ekri sa w ap santi san w pa jije tèt ou. Ou pa bezwen rezoud tout bagay jodi a.",
+    resource3Title:"Avanse nan ritm pa ou",
+    resource3Text:"Ti pa yo konte tou. Bay tèt ou dwa pou aprann epi rekòmanse.",
+    spaceTitle:"Espas pèsonèl ou",
+    spaceText:"Konekte pou jwenn aksè nan espas aprenan ou epi suiv fòmasyon ou yo.",
+    login:"Konekte", accountTitle:"Kont mwen",
+    accountNotice:"N ap aktive kont sou entènèt yo apre nou fin konfigire bazdone sekirize a.",
+    actionLabel:"Aksyon", emailLabel:"Adrès imèl", passwordLabel:"Modpas",
+    continue:"Kontinye", close:"Fèmen",
+    learnerTitle:"Espas aprenan mwen",
+    learnerText:"Byenveni! Espas sa a se yon demonstrasyon pandan n ap tann koneksyon sekirize a.",
+    paymentTitle:"Peman fòmasyon yo",
+    paymentText:"Tranzak poko aktive. Paj sa a pap retire okenn lajan.",
+    adminTitle:"Espas administratè",
+    adminText:"N ap konekte administrasyon sekirize a ak bazdone a. Sa ap pèmèt jere fòmasyon, pri ak aprenan.",
+    adminWarning:"Sa a se pa yon espas administratè ki sekirize. Pa mete modpas administratè oswa kle sekrè nan fichye sa a.",
+    footerText:"Aprann, grandi epi pran swen tèt ou.",
+    buy:"Achte fòmasyon sa a", paymentPending:"N ap tann konfigirasyon peman an",
+    usdApprox:"Se yon to apwoksimatif sèlman", purchaseMessage:"Ou chwazi",
+    priceLabel:"Pri", notActive:"Peman reyèl la poko aktive.",
+    authDemo:"Koneksyon sekirize a poko konfigire. Pa gen kont ki te kreye.",
+    lessonPrefix:"Fòmasyon", lessonStatus:"Poko kòmanse",
+    course1:"Pran swen tèt ou, yon jou alafwa",
+    desc1:"Konprann emosyon ou, respekte bezwen ou epi avanse avèk dousè.",
+    course2:"Konprann emosyon ou yo",
+    desc2:"Aprann rekonèt emosyon ou yo epi eksprime yo pi byen.",
+    course3:"Ranfòse estim ou pou tèt ou",
+    desc3:"Dekouvri fòs ou epi aprann rekonèt valè ou.",
+    course4:"Devlope konfyans nan tèt ou",
+    desc4:"Devlope asirans ou epi avanse nan objektif ou."
+  },
+  en: {
+    navHome:"Home", navCourses:"Courses", navResources:"Resources",
+    navSpace:"My space", eyebrow:"YOUR WELL-BEING SPACE",
+    heroTitle:"Take care of yourself, one day at a time.",
+    heroText:"Get to know yourself, understand your emotions and build your confidence at your own pace.",
+    discover:"Explore courses", createAccount:"Create an account",
+    coursesTitle:"Our courses", coursesIntro:"Accessible learning paths to help you grow at your own pace.",
+    resourcesTitle:"Free resources", resource1Title:"Take a break",
+    resource1Text:"Breathe slowly, notice how you feel and give yourself a few minutes.",
+    resource2Title:"Write about your emotions",
+    resource2Text:"Write down how you feel without judging yourself. You do not have to solve everything today.",
+    resource3Title:"Move at your own pace",
+    resource3Text:"Small steps matter too. Give yourself permission to learn and start again.",
+    spaceTitle:"Your personal space",
+    spaceText:"Sign in to access your learner space and track your courses.",
+    login:"Sign in", accountTitle:"My account",
+    accountNotice:"Online accounts will be enabled after the secure database is configured.",
+    actionLabel:"Action", emailLabel:"Email address", passwordLabel:"Password",
+    continue:"Continue", close:"Close",
+    learnerTitle:"My learning space",
+    learnerText:"Welcome! This is a demonstration until secure authentication is connected.",
+    paymentTitle:"Course payments",
+    paymentText:"Tranzak is not yet enabled. No payment will be charged on this page.",
+    adminTitle:"Administrator space",
+    adminText:"The secure administration system will connect to the database to manage courses, prices and learners.",
+    adminWarning:"This preview is not a secure administrator portal. Do not put an administrator password or secret key in this file.",
+    footerText:"Learn, grow and take care of yourself.",
+    buy:"Buy this course", paymentPending:"Payment setup pending",
+    usdApprox:"Indicative conversion only", purchaseMessage:"You selected",
+    priceLabel:"Price", notActive:"Real payments are not yet enabled.",
+    authDemo:"Secure authentication is not configured yet. No account has been created.",
+    lessonPrefix:"Course", lessonStatus:"Not started",
+    course1:"Take care of yourself, one day at a time",
+    desc1:"Understand your emotions, respect your needs and move forward gently.",
+    course2:"Understanding your emotions",
+    desc2:"Learn to recognize your emotions and express them more clearly.",
+    course3:"Build your self-esteem",
+    desc3:"Discover your strengths and learn to recognize your worth.",
+    course4:"Develop your self-confidence",
+    desc4:"Build confidence and take steps toward your goals."
   }
+};
 
-  alert(
-    "Formation sélectionnée : " + formation.nom +
-    "\nPrix : " + formation.prix.toLocaleString("fr-FR") +
-    " HTG\n\nLe paiement sécurisé sera disponible après l'activation de Tranzak."
-  );
+const courses = [
+  {id:"soin", key:1, price:500, usd:3.83},
+  {id:"emotions", key:2, price:750, usd:5.75},
+  {id:"estime", key:3, price:1000, usd:7.66},
+  {id:"confiance", key:4, price:1500, usd:11.49}
+];
+
+let language = "fr";
+
+function t(key) {
+  return translations[language][key] || translations.fr[key] || key;
 }
 
+function money(amount, usd) {
+  const htg = amount.toLocaleString("en-US");
+  const dollar = usd.toFixed(2);
+  if (language === "en") return `${htg} HTG`;
+  return `${htg} HTG`;
+}
 
-</script>
+function renderCourses() {
+  const list = document.getElementById("course-list");
+  list.replaceChildren();
 
-  <article>
-    <h3>2. Comprendre ses émotions</h3>
- <p>
-  Cette formation te permettra de mieux comprendre le fonctionnement de tes
-  émotions et leur influence sur tes pensées, tes décisions et tes relations.
-  Tu apprendras à identifier ce que tu ressens, à reconnaître certaines
-  situations qui déclenchent tes réactions émotionnelles et à exprimer tes
-  ressentis de manière plus adaptée. Grâce à des exemples concrets et à des
-  exercices pratiques, tu découvriras des stratégies pour prendre du recul,
-  mieux gérer les moments de tension et réagir avec davantage de conscience
-  face aux situations difficiles.
-</p>
-    <p><strong>Objectif :</strong> Mieux identifier et comprendre ce que tu ressens.</p>
- <button
-  type="button"
-  style="margin-top: 10px;"
-  onclick="preparerAchat('formation-emotions')">
-  Acheter cette formation
-</button>
-    
+  courses.forEach(course => {
+    const card = document.createElement("article");
+    card.className = "card";
 
-<article>
-  <h3>3. Renforcer son estime de soi</h3>
+    const icon = document.createElement("div");
+    icon.className = "course-icon";
+    icon.textContent = ["🌿","💭","🌱","✨"][course.key - 1];
 
-  <button
-    type="button"
-    style="margin-top: 10px;"
-    onclick="preparerAchat('formation-estime')">
-    Acheter cette formation
-  </button>
-<p>
-  Cette formation t'invite à mieux comprendre la manière dont tu te perçois
-    et dont tu reconnais ta propre valeur. Tu apprendras à identifier tes
-    qualités, tes forces et tes progrès, tout en prenant conscience des pensées
-    négatives et des comparaisons qui peuvent fragiliser ton estime personnelle.
-    À travers des exercices de réflexion et des activités pratiques, tu
-    développeras un dialogue intérieur plus bienveillant, apprendras à accueillir
-    tes imperfections et à reconnaître ta valeur indépendamment du regard des
-    autres. L'objectif est de construire une relation plus saine, plus équilibrée
-    et plus respectueuse avec toi-même.
-  </p>
-  
-  <p><strong>Objectif :</strong> Développer une relation plus positive avec soi-même.</
+    const title = document.createElement("h3");
+    title.textContent = t("course" + course.key);
 
- <article>
-  <button
-  type="button"
-  style="margin-top: 10px;"
-  onclick="preparerAchat('formation-confiance')">
-  Acheter cette formation
-</button>
-      
-<article>  
- <h3>4. Développer sa confiance en soi</h3>
-  <p>
-    Cette formation t'accompagne dans le développement d'une confiance en soi
-    plus solide et plus réaliste. Tu apprendras à reconnaître tes capacités,
-    à identifier tes forces et à comprendre les situations qui alimentent tes
-    doutes. Tu exploreras des moyens concrets pour dépasser progressivement
-    la peur de l'échec, mieux gérer le regard des autres et oser prendre des
-    initiatives. À travers des exercices pratiques, des objectifs progressifs
-    et des activités de réflexion, tu apprendras à valoriser tes réussites,
-    à tirer des leçons de tes expériences et à exprimer tes idées avec plus
-    d'assurance. L'objectif est de t'aider à avancer avec davantage de confiance,
-    même lorsque tu ressens de l'incertitude.
-  </p>
- <p><strong>Objectif :</strong> Renforcer sa confiance en soi, dépasser progressivement ses doutes et oser agir avec plus d'assurance.</p>
-</article>
-  
-<article>
-  <h3>Nos tarifs de formation</h3>
+    const buy = document.createElement("button");
+    buy.className = "buy-button";
+    buy.textContent = t("buy");
+    buy.addEventListener("click", () => preparerAchat(course.id));
 
-  <div>
-    <h4>Formule accessible</h4>
-    <p>500 HTG / 3,83 USD</p>
-  </div>
+    const price = document.createElement("p");
+    price.className = "price";
+    price.textContent = money(course.price, course.usd);
 
-  <div>
-    <h4>Formule intermédiaire</h4>
-    <p>750 HTG / 5,75 USD</p>
-  </div>
+    const usd = document.createElement("p");
+    usd.className = "price-usd";
+    usd.textContent = `≈ $${course.usd.toFixed(2)} USD · ${t("usdApprox")}`;
 
-  <div>
-    <h4>Formule standard</h4>
-    <p>1 000 HTG / 7,66 USD</p>
-  </div>
+    const description = document.createElement("p");
+    description.textContent = t("desc" + course.key);
 
-  <div>
-    <h4>Formation approfondie</h4>
-    <p>1 500 HTG / 11,49 USD</p>
-  </div>
+    const status = document.createElement("p");
+    status.className = "small";
+    status.textContent = t("paymentPending");
 
-  <p><small>Les équivalences en dollars sont indicatives et peuvent varier selon le taux de change BRH.</small></p>
-</article>
+    card.append(icon, title, buy, price, usd, description, status);
+    list.appendChild(card);
+  });
+}
 
+function preparerAchat(id) {
+  const course = courses.find(item => item.id === id);
+  if (!course) return;
 
-<div class="formation-achat">
-  <h3>Prendre soin de soi, un jour à la fois</h3>
-  <p>Accède à la formation et avance à ton rythme.</p>
+  const box = document.getElementById("payment-info");
+  box.classList.remove("hidden");
 
-  <button
-    type="button"
-    onclick="preparerAchat('formation-bien-etre')">
-    Acheter cette formation
-  </button>
+  const paragraph = box.querySelector("p");
+  paragraph.textContent =
+    `${t("purchaseMessage")} : ${t("course" + course.key)}. ` +
+    `${t("priceLabel")} : ${money(course.price, course.usd)} ` +
+    `(≈ $${course.usd.toFixed(2)} USD). ${t("notActive")}`;
 
-  <p id="message-paiement" role="status"></p>
-</div>
+  box.scrollIntoView({behavior:"smooth", block:"center"});
+}
 
-<script>
-  function preparerAchat(formationId) {
-    const message = document.getElementById(
-      "message-paiement"
-    );
+function showPanel(id, signup = false) {
+  ["auth", "learner"].forEach(panelId => {
+    document.getElementById(panelId).classList.add("hidden");
+  });
 
-    message.textContent =
-      "La formation a été sélectionnée. " +
-      "Le paiement sécurisé sera disponible " +
-      "après la configuration de Tranzak.";
+  document.getElementById(id).classList.remove("hidden");
+
+  if (id === "auth" && signup) {
+    document.getElementById("auth-mode").value = "signup";
   }
+
+  if (id === "learner") renderLearner();
+  document.getElementById(id).scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function hidePanel(id) {
+  document.getElementById(id).classList.add("hidden");
+}
+
+function renderLearner() {
+  const box = document.getElementById("my-courses");
+  box.replaceChildren();
+
+  courses.forEach(course => {
+    const p = document.createElement("p");
+    p.textContent = `${t("lessonPrefix")} : ${t("course" + course.key)} — ${t("lessonStatus")}`;
+    box.appendChild(p);
+  });
+}
+
+function setLanguage(lang) {
+  language = lang;
+  document.documentElement.lang = lang === "ht" ? "ht" : lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(element => {
+    const key = element.dataset.i18n;
+    element.textContent = t(key);
+  });
+
+  document.getElementById("password").autocomplete =
+    document.getElementById("auth-mode").value === "signup"
+      ? "new-password" : "current-password";
+
+  renderCourses();
+  renderLearner();
+}
+
+document.getElementById("language").addEventListener("change", event => {
+  setLanguage(event.target.value);
+});
+
+document.getElementById("auth-mode").addEventListener("change", event => {
+  document.getElementById("password").autocomplete =
+    event.target.value === "signup" ? "new-password" : "current-password";
+});
+
+document.getElementById("auth-form").addEventListener("submit", event => {
+  event.preventDefault();
+  document.getElementById("auth-message").textContent = t("authDemo");
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderCourses();
+setLanguage("fr");
 </script>
-
-</section>
-
-
-    <section class="section" id="bibliotheque">
-      <h2>Bibliothèque</h2>
-      <p>Retrouve des livres, des guides et des ressources utiles pour prendre soin de toi.</p>
-    </section>
-
-    <section class="section" id="ressources">
-      <h2>Ressources pour prendre soin de soi</h2>
-      <p>Découvre des conseils et des exercices pour avancer avec bienveillance envers toi-même.</p>
-    </section>
-  </main>
-
-  <footer>
-    AwaSwen — Une application du projet AwaSere
-  </footer>
 </body>
 </html>
-
