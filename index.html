@@ -1,425 +1,700 @@
 
 
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0f766e">
-<title>AwaSwen | Apprendre et prendre soin de soi</title>
+<meta name="theme-color" content="#087f83">
+<meta name="description" content="AwaSwen : apprenez, grandissez et prenez soin de votre bien-être à votre rythme.">
+<title>AwaSwen | Apprendre, grandir, s'épanouir</title>
+
 <style>
 :root {
-  --teal:#0f766e;
-  --teal-dark:#115e59;
-  --mint:#d9f5e9;
-  --bg:#f5faf8;
-  --ink:#203a38;
-  --muted:#667c78;
-  --white:#fff;
-  --border:#e0ece7;
-  --gold:#f0b85b;
+  --primary: #087f83;
+  --primary-dark: #075d61;
+  --mint: #e8f7f1;
+  --mint-dark: #c9eee1;
+  --ink: #193b40;
+  --muted: #6b8083;
+  --white: #ffffff;
+  --background: #f7faf9;
+  --border: #e3edeb;
+  --gold: #d9a441;
+  --radius: 20px;
+  --shadow: 0 12px 35px rgba(18, 75, 74, .07);
 }
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-button,select,input{font:inherit}
-button{cursor:pointer}
-button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #e5a83e;outline-offset:3px}
-.topbar{background:#fff;border-bottom:1px solid var(--border);padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:5}
-.brand{display:flex;align-items:center;gap:10px;color:var(--teal);font-weight:800;font-size:1.25rem;text-decoration:none}
-.brand-icon{width:40px;height:40px;border-radius:14px;background:var(--mint);display:grid;place-items:center;font-size:22px}
-select{background:#fff;border:1px solid var(--border);border-radius:10px;padding:9px;color:var(--ink);max-width:100%}
-main{max-width:1120px;margin:auto;padding:28px 20px 60px}
-.hero{display:grid;grid-template-columns:1.4fr .8fr;gap:28px;align-items:center;padding:42px;background:linear-gradient(130deg,#e1f8ed,#f4fbf7);border-radius:26px;margin-bottom:28px}
-.eyebrow{color:var(--teal);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
-h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.12;margin:12px 0}
-h2{line-height:1.25}
-.hero p{color:var(--muted);font-size:1.05rem;max-width:600px}
-.hero-art{min-height:210px;border-radius:50%;background:#c4eedc;display:grid;place-items:center;font-size:100px;max-width:250px;width:100%;justify-self:center}
-.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:12px 18px;font-weight:700;background:var(--teal);color:white;text-decoration:none}
-.btn:hover{background:var(--teal-dark)}
-.btn.secondary{background:#e2f4eb;color:var(--teal-dark)}
-.btn.light{background:white;color:var(--teal);border:1px solid var(--border)}
-.btn.small{padding:8px 12px;font-size:.9rem}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:34px 0 16px}
-.section-head h2{margin:0;font-size:1.7rem}
-.section-head p{margin:5px 0 0;color:var(--muted)}
-.course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.course-card,.panel,.lesson-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:22px}
-.course-card{display:flex;flex-direction:column;gap:12px}
-.course-icon{width:54px;height:54px;border-radius:17px;background:var(--mint);display:grid;place-items:center;font-size:28px}
-.course-card h3{margin:0;font-size:1.2rem}
-.course-card p{margin:0;color:var(--muted);flex:1}
-.course-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.price{font-weight:800;color:var(--teal)}
-.progress-track{height:8px;background:#e7efeb;border-radius:99px;overflow:hidden}
-.progress-fill{height:100%;width:0;background:var(--teal);border-radius:99px;transition:width .2s}
-.progress-label{font-size:.85rem;color:var(--muted)}
-.feature-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
-.feature{background:#fff;border:1px solid var(--border);padding:18px;border-radius:16px}
-.feature strong{display:block;margin:5px 0}
-.feature span{font-size:1.5rem}
-footer{text-align:center;color:var(--muted);padding:26px 16px;border-top:1px solid var(--border);font-size:.9rem}
-.hidden{display:none!important}
-.back-link{display:inline-flex;margin-bottom:18px;color:var(--teal);font-weight:700;text-decoration:none}
-.course-banner{padding:26px;background:var(--mint);border-radius:20px;margin-bottom:20px}
-.course-banner h1{font-size:clamp(1.8rem,4vw,2.5rem)}
-.lesson-list{display:grid;gap:12px;margin:20px 0}
-.lesson-row{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid var(--border);border-radius:14px;background:#fff}
-.lesson-number{width:40px;height:40px;flex-shrink:0;border-radius:12px;background:var(--mint);display:grid;place-items:center;font-weight:800;color:var(--teal)}
-.lesson-row .lesson-info{flex:1;min-width:0}
-.lesson-row h3{margin:0;font-size:1rem}
-.lesson-row p{margin:3px 0 0;color:var(--muted);font-size:.9rem}
-.done-mark{color:var(--teal);font-weight:800}
-.lesson-body{background:#fff;border:1px solid var(--border);border-radius:20px;padding:clamp(18px,4vw,32px);margin-top:18px}
-.lesson-body h2{margin-top:0}
-.lesson-text{white-space:pre-line}
-.reflection{width:100%;min-height:100px;padding:12px;border:1px solid var(--border);border-radius:12px;resize:vertical}
-.quiz-option{display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid var(--border);border-radius:12px;margin:9px 0;background:#fff}
-.quiz-option input{margin-top:6px;accent-color:var(--teal)}
-.notice{background:#fff8e8;border:1px solid #f2dfb8;border-radius:14px;padding:14px;color:#6d5429;margin-top:18px}
-.success{background:#e3f7ec;color:#145b43;padding:12px;border-radius:12px;margin-top:12px}
-.empty{text-align:center;padding:30px;color:var(--muted)}
-@media(max-width:700px){
- .hero{grid-template-columns:1fr;padding:26px}
- .hero-art{min-height:130px;max-width:150px;font-size:68px;grid-row:1}
- .course-grid{grid-template-columns:1fr}
- .feature-row{grid-template-columns:1fr}
- .topbar{padding:10px 14px}
- main{padding:20px 14px 40px}
- .section-head{align-items:start;flex-direction:column}
- .lesson-row{align-items:flex-start;flex-wrap:wrap}
- .lesson-row .btn{margin-left:54px}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--background);
+  line-height: 1.65;
+}
+button, input, textarea, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; }
+button:focus-visible, a:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible {
+  outline: 3px solid #8bd7c7;
+  outline-offset: 3px;
+}
+.container { width: min(1120px, 92%); margin: auto; }
+.topbar {
+  background: var(--primary-dark);
+  color: white;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 12px;
+  letter-spacing: .4px;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.brand { display: flex; align-items: center; gap: 11px; }
+.brand-mark {
+  width: 43px; height: 43px; border-radius: 15px;
+  display: grid; place-items: center;
+  color: white; background: var(--primary);
+  font-size: 23px; font-weight: 800;
+}
+.brand-name { font-size: 23px; font-weight: 800; letter-spacing: -.8px; }
+.brand-name span { color: var(--primary); }
+.brand-sub { font-size: 10px; color: var(--muted); display: block; margin-top: -5px; }
+.nav-links { display: flex; align-items: center; gap: 23px; font-size: 13px; font-weight: 650; }
+.nav-links a:hover { color: var(--primary); }
+.language {
+  border: 1px solid var(--border); border-radius: 11px;
+  background: white; padding: 9px 10px; color: var(--ink);
+}
+.btn {
+  border: 0; border-radius: 12px; padding: 12px 18px;
+  font-weight: 750; font-size: 13px;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; transition: transform .2s, background .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { color: white; background: var(--primary); }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-outline { color: var(--primary); background: white; border: 1px solid #b9dcd5; }
+.btn-soft { color: var(--primary-dark); background: var(--mint); }
+.btn-small { padding: 9px 13px; }
+.hero {
+  padding: 68px 0 58px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 90% 15%, #c9eee1 0, transparent 34%),
+    linear-gradient(130deg, #f0faf6 0%, #ffffff 55%, #edf8f5 100%);
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  align-items: center; gap: 55px;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: white; border: 1px solid #d9eee6;
+  color: var(--primary-dark); border-radius: 30px;
+  padding: 7px 13px; font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: #41ae8b; }
+h1 { font-size: clamp(37px, 5vw, 62px); line-height: 1.08; letter-spacing: -2.3px; margin: 23px 0 20px; }
+h1 em { font-style: normal; color: var(--primary); }
+.hero-copy { color: var(--muted); font-size: 16px; max-width: 510px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+.trust-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 28px; color: var(--muted); font-size: 12px; }
+.trust-row span::before { content: "✓"; color: var(--primary); font-weight: 900; margin-right: 6px; }
+.hero-art {
+  min-height: 360px; border-radius: 34px; padding: 25px;
+  background: linear-gradient(145deg, #d8f2e8, #f7fffc);
+  position: relative; display: flex; align-items: center; justify-content: center;
+}
+.art-circle {
+  width: 230px; height: 230px; border-radius: 50%;
+  background: linear-gradient(145deg, #0e9995, #075d61);
+  display: grid; place-items: center; color: white;
+  font-size: 92px; box-shadow: 0 24px 50px #087f8330;
+}
+.float-card {
+  position: absolute; background: white; padding: 14px 17px;
+  border-radius: 16px; box-shadow: var(--shadow); font-size: 12px;
+}
+.float-card strong { display: block; font-size: 14px; }
+.float-one { top: 27px; left: 4px; }
+.float-two { right: 0; bottom: 33px; }
+.section { padding: 66px 0; }
+.section-white { background: white; }
+.section-heading { text-align: center; max-width: 650px; margin: 0 auto 34px; }
+.kicker { color: var(--primary); font-size: 11px; font-weight: 850; letter-spacing: 1.5px; text-transform: uppercase; }
+h2 { font-size: clamp(27px, 3.5vw, 39px); line-height: 1.2; letter-spacing: -1px; margin: 9px 0 12px; }
+.section-heading p { color: var(--muted); font-size: 14px; margin: 0; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.feature {
+  padding: 24px; border: 1px solid var(--border);
+  border-radius: var(--radius); background: white;
+}
+.feature-icon {
+  width: 47px; height: 47px; border-radius: 15px;
+  background: var(--mint); display: grid; place-items: center;
+  font-size: 23px; margin-bottom: 16px;
+}
+.feature h3 { margin: 0 0 7px; font-size: 17px; }
+.feature p { color: var(--muted); font-size: 13px; margin: 0; }
+.course-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.course-card {
+  background: white; border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 4px 15px #123d3c05; transition: transform .2s, box-shadow .2s;
+}
+.course-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.course-cover {
+  padding: 25px; min-height: 145px; position: relative;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cover-1 { background: linear-gradient(135deg, #d9f3e8, #f3fcf7); }
+.cover-2 { background: linear-gradient(135deg, #dceefa, #f5faff); }
+.cover-3 { background: linear-gradient(135deg, #f9e9d7, #fffaf3); }
+.cover-4 { background: linear-gradient(135deg, #e8e2fa, #faf8ff); }
+.course-emoji { font-size: 52px; }
+.course-number { color: #426d69; font-size: 11px; font-weight: 850; letter-spacing: 1px; }
+.course-body { padding: 22px; }
+.pills { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 12px; }
+.pill { background: #eef7f4; color: #286f68; border-radius: 30px; padding: 5px 9px; font-size: 10px; font-weight: 800; }
+.course-body h3 { margin: 0 0 8px; font-size: 20px; line-height: 1.35; }
+.course-body p { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
+.course-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid var(--border); padding-top: 16px; }
+.price { font-size: 18px; font-weight: 850; color: var(--primary-dark); }
+.price small { display: block; font-size: 10px; font-weight: 500; color: var(--muted); }
+.progress-track { height: 7px; background: #e7f0ed; border-radius: 10px; overflow: hidden; margin: 10px 0 5px; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, #087f83, #55c39b); border-radius: 10px; transition: width .3s; }
+.progress-caption { color: var(--muted); font-size: 11px; }
+.panel { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 25px; }
+.dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.stat { background: var(--mint); border-radius: 15px; padding: 17px; }
+.stat strong { display: block; color: var(--primary-dark); font-size: 27px; }
+.stat span { font-size: 12px; color: var(--muted); }
+#course-view { display: none; padding: 35px 0 65px; }
+.lesson-list { display: grid; gap: 10px; margin: 20px 0; }
+.lesson {
+  border: 1px solid var(--border); border-radius: 13px; padding: 15px;
+  display: flex; align-items: flex-start; gap: 12px; background: white;
+}
+.lesson input { accent-color: var(--primary); width: 18px; height: 18px; margin-top: 4px; }
+.lesson strong { display: block; font-size: 14px; }
+.lesson p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+.lesson-content { margin-top: 10px; color: #405e60; font-size: 14px; white-space: pre-line; }
+textarea {
+  width: 100%; min-height: 125px; padding: 14px;
+  border: 1px solid #d9e7e3; border-radius: 13px;
+  background: #fcfefd; color: var(--ink); resize: vertical;
+}
+textarea::placeholder { color: #8da09d; }
+.quiz-question { border-top: 1px solid var(--border); padding: 16px 0; }
+.quiz-question label { display: block; font-size: 13px; margin: 9px 0; cursor: pointer; }
+.quiz-question input { accent-color: var(--primary); margin-right: 8px; }
+.message { margin-top: 12px; font-size: 13px; font-weight: 700; }
+.cta {
+  background: linear-gradient(120deg, #075d61, #0a8985);
+  color: white; padding: 43px; border-radius: 28px;
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+}
+.cta h2 { margin-top: 0; }
+.cta p { color: #d4efea; margin-bottom: 0; font-size: 13px; }
+.cta .btn { background: white; color: var(--primary-dark); flex-shrink: 0; }
+footer { background: #103e40; color: white; padding: 37px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 28px; }
+footer p, footer a { color: #c6dcda; font-size: 12px; }
+footer h3 { font-size: 13px; }
+.footer-bottom { border-top: 1px solid #ffffff22; margin-top: 25px; padding-top: 16px; color: #c6dcda; font-size: 11px; }
+.empty-state { text-align: center; color: var(--muted); padding: 30px; }
+.hidden { display: none !important; }
+
+@media (max-width: 760px) {
+  .nav { min-height: 66px; flex-wrap: wrap; padding: 10px 0; }
+  .brand-name { font-size: 21px; }
+  .nav-links { order: 3; width: 100%; overflow-x: auto; gap: 18px; padding: 7px 0 3px; }
+  .nav-links a { white-space: nowrap; }
+  .hero { padding: 42px 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  h1 { letter-spacing: -1.5px; }
+  .hero-art { min-height: 280px; }
+  .art-circle { width: 175px; height: 175px; font-size: 72px; }
+  .feature-grid { grid-template-columns: 1fr; gap: 13px; }
+  .course-grid, .dashboard-grid { grid-template-columns: 1fr; }
+  .section { padding: 48px 0; }
+  .cta { padding: 28px; flex-direction: column; align-items: flex-start; }
+  .footer-grid { grid-template-columns: 1fr; gap: 15px; }
+  .course-bottom { align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
 </style>
 </head>
+
 <body>
-<header class="topbar">
-  <a href="#" class="brand" onclick="goHome();return false">
-    <span class="brand-icon">🌿</span><span>AwaSwen</span>
-  </a>
-  <select id="language" aria-label="Language" onchange="setLanguage(this.value)">
-    <option value="fr">🇫🇷 Français</option>
-    <option value="ht">🇭🇹 Kreyòl</option>
-    <option value="en">🇬🇧 English</option>
-  </select>
+<div class="topbar" data-i18n="topbar">Ton bien-être compte. Avance à ton rythme.</div>
+
+<header>
+  <div class="container nav">
+    <a href="#accueil" class="brand" aria-label="AwaSwen - accueil">
+      <div class="brand-mark">A</div>
+      <div>
+        <div class="brand-name">Awa<span>Swen</span></div>
+        <span class="brand-sub" data-i18n="brandSub">Apprendre · Grandir · S'épanouir</span>
+      </div>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#accueil" data-i18n="navHome">Accueil</a>
+      <a href="#formations" data-i18n="navCourses">Formations</a>
+      <a href="#mon-espace" data-i18n="navSpace">Mon espace</a>
+      <a href="#apropos" data-i18n="navAbout">À propos</a>
+    </nav>
+    <select class="language" id="language" aria-label="Language / Langue">
+      <option value="fr">FR</option>
+      <option value="ht">Kreyòl</option>
+      <option value="en">EN</option>
+    </select>
+  </div>
 </header>
 
 <main>
-  <section id="home">
-    <div class="hero">
+<section class="hero" id="accueil">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="eyebrow">TON ESPACE POUR GRANDIR</span></div>
+      <h1 data-i18n="heroTitle">Prends soin de toi.<br><em>Investis en toi.</em></h1>
+      <p class="hero-copy" data-i18n="heroCopy">Découvre des formations accessibles pour mieux te connaître, renforcer ta confiance et prendre soin de ton bien-être, un pas à la fois.</p>
+      <div class="hero-actions">
+        <a href="#formations" class="btn btn-primary"><span data-i18n="start">Commencer mon parcours</span> <span aria-hidden="true">→</span></a>
+        <a href="#apropos" class="btn btn-outline" data-i18n="discover">Découvrir AwaSwen</a>
+      </div>
+      <div class="trust-row">
+        <span data-i18n="trust1">Apprends à ton rythme</span>
+        <span data-i18n="trust2">Des outils pratiques</span>
+        <span data-i18n="trust3">Un espace bienveillant</span>
+      </div>
+    </div>
+    <div class="hero-art" aria-label="Illustration du bien-être">
+      <div class="float-card float-one">🌱 <strong data-i18n="floatOne">Un pas à la fois</strong><span data-i18n="floatSmall">Chaque progrès compte.</span></div>
+      <div class="art-circle" aria-hidden="true">✿</div>
+      <div class="float-card float-two">💚 <strong data-i18n="floatTwo">Ton bien-être</strong><span data-i18n="floatSmall2">Une priorité, pas un luxe.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white" id="apropos">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker" data-i18n="whyKicker">POURQUOI AWASWEN ?</span>
+      <h2 data-i18n="whyTitle">Grandir commence par soi</h2>
+      <p data-i18n="whyCopy">Un espace pour apprendre, prendre du recul et développer des habitudes qui soutiennent ton bien-être au quotidien.</p>
+    </div>
+    <div class="feature-grid">
+      <article class="feature">
+        <div class="feature-icon">🌿</div>
+        <h3 data-i18n="feature1Title">Avancer à ton rythme</h3>
+        <p data-i18n="feature1Copy">Progresse selon tes disponibilités, sans pression ni comparaison.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">🧭</div>
+        <h3 data-i18n="feature2Title">Mieux te connaître</h3>
+        <p data-i18n="feature2Copy">Explore tes émotions, tes besoins et les habitudes qui te font du bien.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">✨</div>
+        <h3 data-i18n="feature3Title">Mettre en pratique</h3>
+        <p data-i18n="feature3Copy">Découvre des exercices concrets pour transformer tes apprentissages en actions.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="formations">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker" data-i18n="coursesKicker">APPRENDS À TON RYTHME</span>
+      <h2 data-i18n="coursesTitle">Explore nos formations</h2>
+      <p data-i18n="coursesCopy">Choisis un parcours et fais le premier pas vers une meilleure connaissance de toi-même.</p>
+    </div>
+    <div class="course-grid" id="course-grid"></div>
+  </div>
+</section>
+
+<section class="section section-white" id="mon-espace">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker" data-i18n="spaceKicker">TON CHEMINEMENT</span>
+      <h2 data-i18n="spaceTitle">Mon espace d’apprentissage</h2>
+      <p data-i18n="spaceCopy">Retrouve ici les progrès enregistrés sur cet appareil.</p>
+    </div>
+    <div class="dashboard-grid">
+      <div class="panel">
+        <h3 data-i18n="progressTitle">Ma progression</h3>
+        <div class="stat"><strong id="completed-count">0</strong><span data-i18n="lessonsDone">leçons terminées</span></div>
+        <div style="margin-top:18px">
+          <div style="display:flex;justify-content:space-between;gap:10px;font-size:12px">
+            <strong data-i18n="overall">Progression globale</strong><span id="overall-percent">0%</span>
+          </div>
+          <div class="progress-track"><div class="progress-fill" id="overall-fill" style="width:0%"></div></div>
+          <p class="progress-caption" data-i18n="localNote">Tes progrès sont enregistrés dans le navigateur de cet appareil.</p>
+        </div>
+        <a href="#formations" class="btn btn-soft" data-i18n="continueLearning">Continuer à apprendre →</a>
+      </div>
+      <div class="panel">
+        <h3 data-i18n="journalTitle">Mon journal personnel</h3>
+        <p style="font-size:13px;color:var(--muted)" data-i18n="journalCopy">Prends quelques minutes pour noter ce que tu ressens ou ce que tu souhaites améliorer.</p>
+        <textarea id="journal" data-placeholder="journalPlaceholder" placeholder="Aujourd'hui, je me sens..."></textarea>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px">
+          <span id="journal-status" class="progress-caption" data-i18n="privateNote">Enregistré localement sur cet appareil.</span>
+          <button class="btn btn-primary btn-small" id="save-journal" data-i18n="save">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="course-view">
+  <div class="container">
+    <button class="btn btn-outline" id="back-courses">← <span data-i18n="back">Retour aux formations</span></button>
+    <div id="course-detail" style="margin-top:22px"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta">
       <div>
-        <div class="eyebrow" data-i18n="eyebrow">Ton espace de bien-être</div>
-        <h1 data-i18n="heroTitle">Prends soin de toi, un jour à la fois.</h1>
-        <p data-i18n="heroText">Apprends à mieux te connaître, à comprendre tes émotions et à avancer à ton rythme. Chaque petit pas compte.</p>
-        <a class="btn" href="#formations" data-i18n="explore">Explorer les formations</a>
+        <h2 data-i18n="ctaTitle">Le bon moment pour prendre soin de toi, c'est maintenant.</h2>
+        <p data-i18n="ctaCopy">Commence simplement. Chaque petit pas peut compter.</p>
       </div>
-      <div class="hero-art" aria-hidden="true">🌱</div>
+      <a class="btn" href="#formations" data-i18n="ctaButton">Choisir ma formation →</a>
     </div>
-
-    <div class="section-head">
-      <div>
-        <h2 data-i18n="yourJourney">Ton parcours d’apprentissage</h2>
-        <p data-i18n="journeyText">Choisis une formation et progresse à ton rythme.</p>
-      </div>
-    </div>
-
-    <div class="panel">
-      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
-        <strong data-i18n="overallProgress">Ta progression globale</strong>
-        <span id="overallLabel" class="progress-label">0%</span>
-      </div>
-      <div class="progress-track" style="margin-top:10px"><div class="progress-fill" id="overallFill"></div></div>
-      <p id="overallDetail" class="progress-label" style="margin-bottom:0">0 leçon terminée</p>
-    </div>
-
-    <div class="section-head" id="formations">
-      <div>
-        <h2 data-i18n="catalogTitle">Nos formations</h2>
-        <p data-i18n="catalogText">Des outils simples pour mieux prendre soin de toi.</p>
-      </div>
-    </div>
-    <div class="course-grid" id="courseGrid"></div>
-
-    <div class="feature-row">
-      <div class="feature"><span>💚</span><strong data-i18n="feature1Title">Avance à ton rythme</strong><div data-i18n="feature1Text">Tu peux revenir à tes leçons quand tu le souhaites.</div></div>
-      <div class="feature"><span>📝</span><strong data-i18n="feature2Title">Apprends en pratiquant</strong><div data-i18n="feature2Text">Des questions et exercices pour réfléchir.</div></div>
-      <div class="feature"><span>🌍</span><strong data-i18n="feature3Title">Trois langues</strong><div data-i18n="feature3Text">Français, kreyòl ayisyen et anglais.</div></div>
-    </div>
-    <div class="notice" data-i18n="localNotice">Ta progression est conservée dans ce navigateur sur cet appareil. Elle n'est pas encore synchronisée avec un compte en ligne.</div>
-  </section>
-
-  <section id="coursePage" class="hidden">
-    <a href="#" class="back-link" onclick="goHome();return false" data-i18n="backCourses">← Retour aux formations</a>
-    <div class="course-banner">
-      <div id="courseIcon" style="font-size:42px">🌱</div>
-      <h1 id="courseTitle"></h1>
-      <p id="courseDescription"></p>
-      <div class="course-meta">
-        <span id="courseLessonCount" class="progress-label"></span>
-        <span id="courseProgressLabel" class="price"></span>
-      </div>
-      <div class="progress-track" style="margin-top:12px"><div class="progress-fill" id="courseProgressFill"></div></div>
-    </div>
-    <div class="section-head"><div><h2 data-i18n="lessonsTitle">Les leçons</h2><p data-i18n="lessonsText">Ouvre une leçon pour commencer.</p></div></div>
-    <div class="lesson-list" id="lessonList"></div>
-    <div id="lessonContent"></div>
-  </section>
+  </div>
+</section>
 </main>
 
 <footer>
-  <strong>AwaSwen</strong> — <span data-i18n="footerText">Apprendre, grandir et prendre soin de soi.</span>
-  <div style="margin-top:8px">© <span id="year"></span> AwaSwen</div>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#accueil" class="brand">
+          <div class="brand-mark" style="background:#ffffff;color:#087f83">A</div>
+          <div><div class="brand-name" style="color:white">AwaSwen</div><span class="brand-sub" style="color:#c6dcda" data-i18n="brandSub">Apprendre · Grandir · S'épanouir</span></div>
+        </a>
+        <p data-i18n="footerCopy">Un espace pour apprendre, grandir et prendre soin de soi.</p>
+      </div>
+      <div><h3 data-i18n="footerExplore">Explorer</h3><p><a href="#formations" data-i18n="navCourses">Formations</a></p><p><a href="#mon-espace" data-i18n="navSpace">Mon espace</a></p></div>
+      <div><h3 data-i18n="footerContact">Contact</h3><p><a href="mailto:awasere32@gmail.com">awasere32@gmail.com</a></p><p data-i18n="footerNote">Une initiative intégrée à AwaSere.</p></div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> AwaSwen. <span data-i18n="rights">Tous droits réservés.</span></div>
+  </div>
 </footer>
 
 <script>
 const translations = {
-fr:{
-eyebrow:"Ton espace de bien-être",heroTitle:"Prends soin de toi, un jour à la fois.",heroText:"Apprends à mieux te connaître, à comprendre tes émotions et à avancer à ton rythme. Chaque petit pas compte.",explore:"Explorer les formations",yourJourney:"Ton parcours d’apprentissage",journeyText:"Choisis une formation et progresse à ton rythme.",overallProgress:"Ta progression globale",catalogTitle:"Nos formations",catalogText:"Des outils simples pour mieux prendre soin de toi.",feature1Title:"Avance à ton rythme",feature1Text:"Tu peux revenir à tes leçons quand tu le souhaites.",feature2Title:"Apprends en pratiquant",feature2Text:"Des questions et exercices pour réfléchir.",feature3Title:"Trois langues",feature3Text:"Français, kreyòl ayisyen et anglais.",localNotice:"Ta progression est conservée dans ce navigateur sur cet appareil. Elle n'est pas encore synchronisée avec un compte en ligne.",backCourses:"← Retour aux formations",lessonsTitle:"Les leçons",lessonsText:"Ouvre une leçon pour commencer.",open:"Ouvrir",continue:"Continuer",completed:"Terminée",notCompleted:"À découvrir",lesson:"leçon",lessons:"leçons",done:"terminée(s)",startLesson:"Commencer la leçon",markDone:"Marquer comme terminée",markedDone:"Leçon terminée !",reflection:"Mon temps de réflexion",reflectionPrompt:"Qu’est-ce que je retiens de cette leçon ? Écris ici tes pensées. Elles seront sauvegardées sur cet appareil.",saveReflection:"Enregistrer ma réflexion",reflectionSaved:"Ta réflexion a été enregistrée sur cet appareil.",quizTitle:"Petit quiz",quizText:"Choisis une réponse pour chaque question.",checkAnswers:"Vérifier mes réponses",quizResult:"Ton résultat",tryAgain:"Tu peux relire la leçon et réessayer.",quizPass:"Bravo ! Tu as bien compris les idées principales.",quizNoAnswer:"Réponds à toutes les questions avant de vérifier.",noLessons:"Aucune leçon disponible.",reset:"Recommencer la formation",resetConfirm:"Veux-tu vraiment effacer la progression de cette formation ?",allComplete:"Formation terminée ! Félicitations pour tes efforts.",priceFree:"Accès découverte",footerText:"Apprendre, grandir et prendre soin de soi.",lessonIntro:"Prends quelques minutes pour toi. Lis tranquillement et garde ce qui te fait du bien.",previous:"Leçon précédente",next:"Leçon suivante",noReflection:"Tu n’as pas encore écrit de réflexion.",courseProgress:"Progression",course1:"Prendre soin de soi, un jour à la fois",course2:"Comprendre ses émotions",course3:"Renforcer son estime de soi",course4:"Développer sa confiance en soi",course1Desc:"Découvre des gestes simples pour respecter tes besoins et prendre soin de ton bien-être.",course2Desc:"Apprends à identifier tes émotions et à les accueillir sans te juger.",course3Desc:"Reconnais ta valeur et développe un regard plus bienveillant envers toi-même.",course4Desc:"Ose avancer, reconnaître tes forces et agir malgré les doutes."
+fr: {
+topbar:"Ton bien-être compte. Avance à ton rythme.", brandSub:"Apprendre · Grandir · S'épanouir",
+navHome:"Accueil",navCourses:"Formations",navSpace:"Mon espace",navAbout:"À propos",
+eyebrow:"TON ESPACE POUR GRANDIR",heroTitle:'Prends soin de toi.<br><em>Investis en toi.</em>',
+heroCopy:"Découvre des formations accessibles pour mieux te connaître, renforcer ta confiance et prendre soin de ton bien-être, un pas à la fois.",
+start:"Commencer mon parcours",discover:"Découvrir AwaSwen",trust1:"Apprends à ton rythme",trust2:"Des outils pratiques",trust3:"Un espace bienveillant",
+floatOne:"Un pas à la fois",floatSmall:"Chaque progrès compte.",floatTwo:"Ton bien-être",floatSmall2:"Une priorité, pas un luxe.",
+whyKicker:"POURQUOI AWASWEN ?",whyTitle:"Grandir commence par soi",whyCopy:"Un espace pour apprendre, prendre du recul et développer des habitudes qui soutiennent ton bien-être au quotidien.",
+feature1Title:"Avancer à ton rythme",feature1Copy:"Progresse selon tes disponibilités, sans pression ni comparaison.",
+feature2Title:"Mieux te connaître",feature2Copy:"Explore tes émotions, tes besoins et les habitudes qui te font du bien.",
+feature3Title:"Mettre en pratique",feature3Copy:"Découvre des exercices concrets pour transformer tes apprentissages en actions.",
+coursesKicker:"APPRENDS À TON RYTHME",coursesTitle:"Explore nos formations",coursesCopy:"Choisis un parcours et fais le premier pas vers une meilleure connaissance de toi-même.",
+spaceKicker:"TON CHEMINEMENT",spaceTitle:"Mon espace d’apprentissage",spaceCopy:"Retrouve ici les progrès enregistrés sur cet appareil.",
+progressTitle:"Ma progression",lessonsDone:"leçons terminées",overall:"Progression globale",localNote:"Tes progrès sont enregistrés dans le navigateur de cet appareil.",continueLearning:"Continuer à apprendre →",
+journalTitle:"Mon journal personnel",journalCopy:"Prends quelques minutes pour noter ce que tu ressens ou ce que tu souhaites améliorer.",journalPlaceholder:"Aujourd'hui, je me sens...",privateNote:"Enregistré localement sur cet appareil.",save:"Enregistrer",saved:"Journal enregistré.",back:"Retour aux formations",
+ctaTitle:"Le bon moment pour prendre soin de toi, c'est maintenant.",ctaCopy:"Commence simplement. Chaque petit pas peut compter.",ctaButton:"Choisir ma formation →",
+footerCopy:"Un espace pour apprendre, grandir et prendre soin de soi.",footerExplore:"Explorer",footerContact:"Contact",footerNote:"Une initiative intégrée à AwaSere.",rights:"Tous droits réservés.",
+level:"Débutant",duration:"3 leçons",course:"Formation",view:"Découvrir la formation",lesson:"Leçon",markDone:"Marquer comme terminée",done:"Terminée",quiz:"Vérifie tes acquis",check:"Vérifier mes réponses",correct:"Bonne réponse !",incorrect:"Essaie encore en relisant les leçons.",complete:"Bravo ! Tu as terminé toutes les leçons.",reflection:"Ma réflexion",reflectionPlaceholder:"Qu'est-ce que je retiens de cette leçon ?",savedReflection:"Réflexion enregistrée.",noCourse:"Formation introuvable.",priceNote:"Prix indicatif",purchase:"Acheter cette formation",paymentNote:"Le paiement en ligne sera disponible après la configuration et l’activation du prestataire de paiement.",objectives:"Ce que tu vas apprendre",noLessons:"Aucune leçon disponible.",answerAll:"Réponds à toutes les questions."
 },
-ht:{
-eyebrow:"Espas byennèt ou",heroTitle:"Pran swen tèt ou, yon jou alafwa.",heroText:"Aprann konnen tèt ou pi byen, konprann emosyon ou epi avanse nan rit pa ou. Chak ti pa konte.",explore:"Dekouvri fòmasyon yo",yourJourney:"Chemen aprantisaj ou",journeyText:"Chwazi yon fòmasyon epi avanse nan rit pa ou.",overallProgress:"Pwogrè jeneral ou",catalogTitle:"Fòmasyon nou yo",catalogText:"Zouti senp pou ede w pran swen tèt ou.",feature1Title:"Avanse nan rit pa ou",feature1Text:"Ou ka retounen nan leson yo nenpòt lè.",feature2Title:"Aprann pandan w ap pratike",feature2Text:"Kesyon ak egzèsis pou reflechi.",feature3Title:"Twa lang",feature3Text:"Franse, kreyòl ayisyen ak anglè.",localNotice:"Pwogrè ou konsève nan navigatè sa a sou aparèy sa a. Li poko konekte ak yon kont sou entènèt.",backCourses:"← Retounen nan fòmasyon yo",lessonsTitle:"Leson yo",lessonsText:"Louvri yon leson pou kòmanse.",open:"Louvri",continue:"Kontinye",completed:"Fini",notCompleted:"Pou dekouvri",lesson:"leson",lessons:"leson",done:"fini",startLesson:"Kòmanse leson an",markDone:"Make kòm fini",markedDone:"Leson an fini!",reflection:"Moman refleksyon mwen",reflectionPrompt:"Kisa ou aprann nan leson sa a? Ekri panse ou isit la. Yo ap konsève sou aparèy sa a.",saveReflection:"Anrejistre refleksyon mwen",reflectionSaved:"Refleksyon ou anrejistre sou aparèy sa a.",quizTitle:"Ti egzamen",quizText:"Chwazi yon repons pou chak kesyon.",checkAnswers:"Verifye repons mwen yo",quizResult:"Rezilta ou",tryAgain:"Ou ka reli leson an epi eseye ankò.",quizPass:"Bravo! Ou byen konprann prensipal lide yo.",quizNoAnswer:"Reponn tout kesyon yo anvan ou verifye.",noLessons:"Pa gen leson disponib.",reset:"Rekòmanse fòmasyon an",resetConfirm:"Èske ou vle efase pwogrè fòmasyon sa a vre?",allComplete:"Fòmasyon an fini! Felisitasyon pou efò ou.",priceFree:"Aksè dekouvèt",footerText:"Aprann, grandi epi pran swen tèt ou.",lessonIntro:"Pran kèk minit pou tèt ou. Li dousman epi kenbe sa ki bon pou ou.",previous:"Leson anvan",next:"Leson apre",noReflection:"Ou poko ekri refleksyon.",courseProgress:"Pwogrè",course1:"Pran swen tèt ou, yon jou alafwa",course2:"Konprann emosyon ou",course3:"Ranfòse estim pwòp tèt ou",course4:"Devlope konfyans nan tèt ou",course1Desc:"Dekouvri ti aksyon ki ede w respekte bezwen ou epi pran swen byennèt ou.",course2Desc:"Aprann idantifye emosyon ou epi akeyi yo san jije tèt ou.",course3Desc:"Rekonèt valè ou epi aprann gade tèt ou ak plis jantiyès.",course4Desc:"Oze avanse, rekonèt fòs ou epi aji menm lè ou gen dout."
+ht: {
+topbar:"Byennèt ou enpòtan. Avanse nan rit pa w.",brandSub:"Aprann · Grandi · Devlope tèt ou",
+navHome:"Akèy",navCourses:"Fòmasyon",navSpace:"Espas mwen",navAbout:"Konsènan nou",
+eyebrow:"ESPAS OU POU GRANDI",heroTitle:'Pran swen tèt ou.<br><em>Envesti nan tèt ou.</em>',
+heroCopy:"Dekouvri fòmasyon pou pi byen konnen tèt ou, ranfòse konfyans ou epi pran swen byennèt ou, yon pa alafwa.",
+start:"Kòmanse chemen mwen",discover:"Dekouvri AwaSwen",trust1:"Aprann nan rit pa w",trust2:"Zouti pratik",trust3:"Yon espas ki akeyan",
+floatOne:"Yon pa alafwa",floatSmall:"Chak pwogrè konte.",floatTwo:"Byennèt ou",floatSmall2:"Se yon priyorite.",
+whyKicker:"POUKISA AWASWEN ?",whyTitle:"Grandi kòmanse ak tèt ou",whyCopy:"Yon espas pou aprann, reflechi epi devlope abitid ki ede w pran swen tèt ou chak jou.",
+feature1Title:"Avanse nan rit pa w",feature1Copy:"Aprann selon tan ou genyen, san presyon ni konparezon.",
+feature2Title:"Pi byen konnen tèt ou",feature2Copy:"Dekouvri emosyon ou, bezwen ou ak abitid ki bon pou ou.",
+feature3Title:"Mete sa ou aprann an pratik",feature3Copy:"Dekouvri egzèsis ki ka ede w aplike sa ou aprann.",
+coursesKicker:"APRANN NAN RIT PA W",coursesTitle:"Dekouvri fòmasyon nou yo",coursesCopy:"Chwazi yon chemen epi fè premye pa pou pi byen konnen tèt ou.",
+spaceKicker:"CHEMEN PA W",spaceTitle:"Espas aprantisaj mwen",spaceCopy:"Ou ka jwenn pwogrè ki anrejistre sou aparèy sa a isit la.",
+progressTitle:"Pwogrè mwen",lessonsDone:"leson fini",overall:"Pwogrè jeneral",localNote:"Pwogrè ou anrejistre nan navigatè aparèy sa a.",continueLearning:"Kontinye aprann →",
+journalTitle:"Jounal pèsonèl mwen",journalCopy:"Pran kèk minit pou ekri sa ou santi oswa sa ou vle amelyore.",journalPlaceholder:"Jodi a, mwen santi mwen...",privateNote:"Anrejistre sou aparèy sa a.",save:"Anrejistre",saved:"Jounal la anrejistre.",back:"Retounen nan fòmasyon yo",
+ctaTitle:"Kounye a se yon bon moman pou pran swen tèt ou.",ctaCopy:"Kòmanse piti. Chak ti pa gen valè.",ctaButton:"Chwazi fòmasyon mwen →",
+footerCopy:"Yon espas pou aprann, grandi epi pran swen tèt ou.",footerExplore:"Eksplore",footerContact:"Kontak",footerNote:"Yon inisyativ ki fè pati AwaSere.",rights:"Tout dwa rezève.",
+level:"Debitan",duration:"3 leson",course:"Fòmasyon",view:"Dekouvri fòmasyon an",lesson:"Leson",markDone:"Make kòm fini",done:"Fini",quiz:"Teste sa ou aprann",check:"Verifye repons mwen yo",correct:"Bon repons !",incorrect:"Eseye ankò apre ou fin revize leson yo.",complete:"Bravo ! Ou fini tout leson yo.",reflection:"Refleksyon mwen",reflectionPlaceholder:"Kisa ou aprann nan leson sa a ?",savedReflection:"Refleksyon anrejistre.",noCourse:"Nou pa jwenn fòmasyon sa a.",priceNote:"Pri enfòmatif",purchase:"Achte fòmasyon sa a",paymentNote:"Peman sou entènèt ap disponib apre nou fin konfigire epi aktive sèvis peman an.",objectives:"Sa w ap aprann",noLessons:"Pa gen leson ki disponib.",answerAll:"Reponn tout kesyon yo."
 },
-en:{
-eyebrow:"Your wellbeing space",heroTitle:"Take care of yourself, one day at a time.",heroText:"Get to know yourself, understand your emotions, and move at your own pace. Every small step counts.",explore:"Explore courses",yourJourney:"Your learning journey",journeyText:"Choose a course and progress at your own pace.",overallProgress:"Your overall progress",catalogTitle:"Our courses",catalogText:"Simple tools to help you care for yourself.",feature1Title:"Move at your own pace",feature1Text:"Return to your lessons whenever you want.",feature2Title:"Learn by practicing",feature2Text:"Questions and exercises to reflect on.",feature3Title:"Three languages",feature3Text:"French, Haitian Creole, and English.",localNotice:"Your progress is saved in this browser on this device. It is not yet synced to an online account.",backCourses:"← Back to courses",lessonsTitle:"Lessons",lessonsText:"Open a lesson to get started.",open:"Open",continue:"Continue",completed:"Completed",notCompleted:"Not started",lesson:"lesson",lessons:"lessons",done:"completed",startLesson:"Start lesson",markDone:"Mark as complete",markedDone:"Lesson completed!",reflection:"My reflection time",reflectionPrompt:"What will you take away from this lesson? Write your thoughts here. They will be saved on this device.",saveReflection:"Save my reflection",reflectionSaved:"Your reflection has been saved on this device.",quizTitle:"Quick quiz",quizText:"Choose one answer for each question.",checkAnswers:"Check my answers",quizResult:"Your result",tryAgain:"You can review the lesson and try again.",quizPass:"Great job! You understood the main ideas.",quizNoAnswer:"Answer every question before checking.",noLessons:"No lessons available.",reset:"Restart course",resetConfirm:"Do you really want to erase progress for this course?",allComplete:"Course completed! Congratulations on your effort.",priceFree:"Introductory access",footerText:"Learn, grow, and take care of yourself.",lessonIntro:"Take a few minutes for yourself. Read slowly and keep what feels helpful.",previous:"Previous lesson",next:"Next lesson",noReflection:"You haven't written a reflection yet.",courseProgress:"Progress",course1:"Self-care, one day at a time",course2:"Understanding your emotions",course3:"Building self-esteem",course4:"Developing self-confidence",course1Desc:"Discover simple ways to respect your needs and care for your wellbeing.",course2Desc:"Learn to identify your emotions and welcome them without judging yourself.",course3Desc:"Recognize your worth and develop a kinder view of yourself.",course4Desc:"Move forward, recognize your strengths, and take action despite doubts."
+en: {
+topbar:"Your well-being matters. Move at your own pace.",brandSub:"Learn · Grow · Flourish",
+navHome:"Home",navCourses:"Courses",navSpace:"My space",navAbout:"About",
+eyebrow:"YOUR SPACE TO GROW",heroTitle:'Take care of yourself.<br><em>Invest in you.</em>',
+heroCopy:"Discover accessible courses to understand yourself, build confidence and care for your well-being, one step at a time.",
+start:"Start my journey",discover:"Discover AwaSwen",trust1:"Learn at your pace",trust2:"Practical tools",trust3:"A supportive space",
+floatOne:"One step at a time",floatSmall:"Every bit of progress counts.",floatTwo:"Your well-being",floatSmall2:"A priority, not a luxury.",
+whyKicker:"WHY AWASWEN?",whyTitle:"Growth starts with you",whyCopy:"A space to learn, reflect and develop habits that support your everyday well-being.",
+feature1Title:"Move at your pace",feature1Copy:"Learn according to your schedule, without pressure or comparison.",
+feature2Title:"Know yourself better",feature2Copy:"Explore your emotions, needs and habits that help you feel well.",
+feature3Title:"Put learning into practice",feature3Copy:"Discover practical exercises to turn learning into action.",
+coursesKicker:"LEARN AT YOUR PACE",coursesTitle:"Explore our courses",coursesCopy:"Choose a learning path and take the first step toward understanding yourself better.",
+spaceKicker:"YOUR JOURNEY",spaceTitle:"My learning space",spaceCopy:"Find the progress saved on this device here.",
+progressTitle:"My progress",lessonsDone:"lessons completed",overall:"Overall progress",localNote:"Your progress is saved in this device's browser.",continueLearning:"Continue learning →",
+journalTitle:"My personal journal",journalCopy:"Take a few minutes to write down how you feel or what you want to improve.",journalPlaceholder:"Today, I feel...",privateNote:"Saved locally on this device.",save:"Save",saved:"Journal saved.",back:"Back to courses",
+ctaTitle:"Now is a good time to take care of yourself.",ctaCopy:"Start small. Every step counts.",ctaButton:"Choose a course →",
+footerCopy:"A space to learn, grow and care for yourself.",footerExplore:"Explore",footerContact:"Contact",footerNote:"An initiative within AwaSere.",rights:"All rights reserved.",
+level:"Beginner",duration:"3 lessons",course:"Course",view:"Explore course",lesson:"Lesson",markDone:"Mark as complete",done:"Completed",quiz:"Check your learning",check:"Check my answers",correct:"Correct answer!",incorrect:"Try again after reviewing the lessons.",complete:"Well done! You completed all lessons.",reflection:"My reflection",reflectionPlaceholder:"What did I learn from this lesson?",savedReflection:"Reflection saved.",noCourse:"Course not found.",priceNote:"Indicative price",purchase:"Buy this course",paymentNote:"Online payment will be available after the payment provider is configured and activated.",objectives:"What you will learn",noLessons:"No lessons available.",answerAll:"Please answer all questions."
 }
 };
 
-const courseData = [
-{id:"care",icon:"🌱",titleKey:"course1",descKey:"course1Desc",price:"500 HTG",lessons:[
-{title:{fr:"Mieux se connaître",ht:"Aprann konnen tèt ou",en:"Getting to know yourself"},body:{fr:"Prendre soin de soi commence par une pause. Observe ton énergie, tes émotions et ce qui compte pour toi.\n\nExercice : prends une minute pour te demander : comment est-ce que je me sens aujourd’hui ? De quoi ai-je besoin ?",ht:"Pran swen tèt ou kòmanse ak yon ti poz. Obsève enèji ou, emosyon ou ak sa ki enpòtan pou ou.\n\nEgzèsis: pran yon minit pou mande tèt ou: kijan mwen santi mwen jodi a? Ki sa mwen bezwen?",en:"Self-care begins with a pause. Notice your energy, emotions, and what matters to you.\n\nExercise: take a minute to ask yourself: How do I feel today? What do I need?"}},
-{title:{fr:"Reconnaître ses besoins",ht:"Rekonèt bezwen ou",en:"Recognizing your needs"},body:{fr:"Tes besoins sont importants. Ils peuvent concerner le repos, la sécurité, l’écoute, le mouvement ou le lien avec les autres. Les reconnaître n’est pas de l’égoïsme.\n\nExercice : choisis un besoin auquel tu peux répondre aujourd’hui par une petite action.",ht:"Bezwen ou enpòtan. Yo ka konsène repo, sekirite, koute, mouvman oswa relasyon ak lòt moun. Rekonèt yo pa vle di ou egoyis.\n\nEgzèsis: chwazi yon bezwen ou ka reponn jodi a ak yon ti aksyon.",en:"Your needs matter. They may involve rest, safety, being heard, movement, or connection. Recognizing them is not selfishness.\n\nExercise: choose one need you can respond to today with a small action."}},
-{title:{fr:"Créer une petite routine",ht:"Kreye yon ti abitid",en:"Creating a small routine"},body:{fr:"Une routine bienveillante n’a pas besoin d’être parfaite. Boire de l’eau, respirer calmement, marcher quelques minutes ou parler à une personne de confiance peut déjà aider.\n\nExercice : choisis une habitude réaliste que tu peux répéter cette semaine.",ht:"Yon abitid ki bon pou ou pa bezwen pafè. Bwè dlo, respire dousman, mache kèk minit oswa pale ak yon moun ou fè konfyans ka ede deja.\n\nEgzèsis: chwazi yon ti abitid ou ka repete semèn sa a.",en:"A caring routine does not need to be perfect. Drinking water, breathing calmly, walking for a few minutes, or talking to someone you trust can help.\n\nExercise: choose one realistic habit to repeat this week."}}
-],quiz:[
-{q:{fr:"Quel est un premier pas vers le soin de soi ?",ht:"Ki premye pa pou pran swen tèt ou?",en:"What is a first step in self-care?"},opts:{fr:["Ignorer ses besoins","Observer comment on se sent","Tout faire parfaitement"],ht:["Inyore bezwen ou","Obsève kijan ou santi ou","Fè tout bagay pafè"],en:["Ignore your needs","Notice how you feel","Do everything perfectly"]},correct:1},
-{q:{fr:"Reconnaître ses besoins est-il égoïste ?",ht:"Èske rekonèt bezwen ou se egoyis?",en:"Is recognizing your needs selfish?"},opts:{fr:["Oui, toujours","Non, les besoins comptent","Il ne faut jamais avoir de besoins"],ht:["Wi, toujou","Non, bezwen yo enpòtan","Pa dwe gen bezwen"],en:["Yes, always","No, needs matter","You should never have needs"]},correct:1}
-]},
-{id:"emotions",icon:"💚",titleKey:"course2",descKey:"course2Desc",price:"750 HTG",lessons:[
-{title:{fr:"Nommer ses émotions",ht:"Bay emosyon ou non",en:"Naming your emotions"},body:{fr:"La joie, la peur, la colère, la tristesse et la surprise sont des émotions humaines. Les nommer aide à comprendre ce qui se passe en nous.\n\nExercice : choisis un mot qui décrit ton émotion actuelle, sans te juger.",ht:"Kè kontan, laperèz, kòlè, tristès ak sipriz se emosyon moun ka santi. Bay yo non ede w konprann sa k ap pase anndan ou.\n\nEgzèsis: chwazi yon mo ki dekri emosyon ou kounye a, san jije tèt ou.",en:"Joy, fear, anger, sadness, and surprise are human emotions. Naming them helps us understand what is happening inside.\n\nExercise: choose one word that describes your current emotion, without judging yourself."}},
-{title:{fr:"Accueillir sans se juger",ht:"Aksepte emosyon yo san jije tèt ou",en:"Welcoming feelings without judgment"},body:{fr:"Une émotion n’est ni une faute ni une identité. Ressentir de la colère ne signifie pas être une mauvaise personne. Tu peux reconnaître une émotion et choisir comment agir.\n\nExercice : complète cette phrase : « Je ressens ___ et je peux prendre un instant avant d’agir. »",ht:"Yon emosyon pa yon fot ni yon idantite. Santi kòlè pa vle di ou se yon move moun. Ou ka rekonèt yon emosyon epi chwazi kijan pou aji.\n\nEgzèsis: konplete fraz sa a: «Mwen santi ___ epi mwen ka pran yon ti tan anvan mwen aji.»",en:"An emotion is neither a fault nor an identity. Feeling anger does not make you a bad person. You can recognize a feeling and choose how to act.\n\nExercise: complete this sentence: “I feel ___ and I can pause before acting.”"}},
-{title:{fr:"Faire une pause",ht:"Pran yon ti poz",en:"Taking a pause"},body:{fr:"Quand une émotion devient intense, essaie de poser les pieds au sol et de respirer doucement. Regarde autour de toi et nomme trois choses que tu vois. Si tu ne te sens pas en sécurité, cherche de l’aide auprès d’une personne de confiance.\n\nExercice : pratique une pause calme pendant une minute.",ht:"Lè yon emosyon vin fò, eseye mete pye ou atè epi respire dousman. Gade toutotou ou epi site twa bagay ou wè. Si ou pa santi ou an sekirite, chèche èd nan men yon moun ou fè konfyans.\n\nEgzèsis: fè yon ti poz pandan yon minit.",en:"When a feeling becomes intense, try placing your feet on the floor and breathing gently. Look around and name three things you can see. If you feel unsafe, seek help from someone you trust.\n\nExercise: practice a calm pause for one minute."}}
-],quiz:[
-{q:{fr:"Une émotion est-elle une faute ?",ht:"Èske yon emosyon se yon fot?",en:"Is an emotion a fault?"},opts:{fr:["Oui","Non, c’est une expérience humaine","Il faut toujours la cacher"],ht:["Wi","Non, se yon eksperyans moun fè","Fòk ou toujou kache li"],en:["Yes","No, it is a human experience","You must always hide it"]},correct:1},
-{q:{fr:"Que peux-tu faire quand une émotion est intense ?",ht:"Kisa ou ka fè lè yon emosyon fò?",en:"What can you do when a feeling is intense?"},opts:{fr:["Faire une pause et respirer","Te juger","Agir immédiatement sans réfléchir"],ht:["Pran yon poz epi respire","Jije tèt ou","Aji touswit san reflechi"],en:["Pause and breathe","Judge yourself","Act immediately without thinking"]},correct:0}
-]},
-{id:"esteem",icon:"🌼",titleKey:"course3",descKey:"course3Desc",price:"1000 HTG",lessons:[
-{title:{fr:"Reconnaître sa valeur",ht:"Rekonèt valè ou",en:"Recognizing your worth"},body:{fr:"Ta valeur ne dépend pas uniquement de tes résultats, de ton apparence ou de l’approbation des autres. Tu mérites le respect, y compris de toi-même.\n\nExercice : écris une qualité ou un effort dont tu peux être fier aujourd’hui.",ht:"Valè ou pa depann sèlman de rezilta ou, aparans ou oswa sa lòt moun panse. Ou merite respè, menm nan men tèt ou.\n\nEgzèsis: ekri yon kalite oswa yon efò ou fyè de li jodi a.",en:"Your worth does not depend only on your results, appearance, or other people's approval. You deserve respect, including from yourself.\n\nExercise: write one quality or effort you can feel proud of today."}},
-{title:{fr:"Changer son dialogue intérieur",ht:"Chanje fason ou pale ak tèt ou",en:"Changing your inner dialogue"},body:{fr:"Remarque la façon dont tu te parles lorsque tu fais une erreur. Essaie de remplacer « je suis nul » par « je rencontre une difficulté et je peux apprendre ».\n\nExercice : transforme une pensée dure envers toi-même en une phrase plus juste et plus douce.",ht:"Obsève fason ou pale ak tèt ou lè ou fè yon erè. Eseye ranplase «mwen pa vo anyen» ak «mwen rankontre yon difikilte epi mwen ka aprann».\n\nEgzèsis: chanje yon panse ki di anpil sou tèt ou pou yon fraz ki pi jis ak pi dous.",en:"Notice how you speak to yourself after a mistake. Try replacing “I am useless” with “I am facing a challenge and I can learn.”\n\nExercise: turn one harsh thought about yourself into a fairer, kinder sentence."}},
-{title:{fr:"Respecter ses limites",ht:"Respekte limit ou",en:"Respecting your limits"},body:{fr:"Dire non avec respect, demander du temps et exprimer un besoin sont des façons de prendre soin de soi. Tu peux être attentif aux autres sans tout accepter.\n\nExercice : prépare une phrase simple pour exprimer une limite avec calme.",ht:"Di non avèk respè, mande tan epi esplike yon bezwen se fason pou pran swen tèt ou. Ou ka pran swen lòt moun san ou pa aksepte tout bagay.\n\nEgzèsis: prepare yon fraz senp pou esplike yon limit avèk kalm.",en:"Saying no respectfully, asking for time, and expressing a need are ways to care for yourself. You can care about others without accepting everything.\n\nExercise: prepare a simple sentence to express a boundary calmly."}}
-],quiz:[
-{q:{fr:"De quoi ta valeur dépend-elle ?",ht:"De kisa valè ou depann?",en:"What does your worth depend on?"},opts:{fr:["Uniquement des résultats","Uniquement de l’avis des autres","Pas uniquement de ces choses"],ht:["Se rezilta sèlman","Se opinyon lòt moun sèlman","Se pa bagay sa yo sèlman"],en:["Only your results","Only other people's opinions","Not only these things"]},correct:2},
-{q:{fr:"Comment répondre à une pensée dure envers soi ?",ht:"Kijan pou reponn yon panse ki di sou tèt ou?",en:"How can you respond to a harsh thought?"},opts:{fr:["La transformer en phrase plus juste","Se punir","Ne jamais apprendre"],ht:["Chanje li pou yon fraz ki pi jis","Pini tèt ou","Pa janm aprann"],en:["Turn it into a fairer statement","Punish yourself","Never learn"]},correct:0}
-]},
-{id:"confidence",icon:"🌟",titleKey:"course4",descKey:"course4Desc",price:"1500 HTG",lessons:[
-{title:{fr:"Identifier ses forces",ht:"Idantifye fòs ou",en:"Identifying your strengths"},body:{fr:"La confiance grandit lorsque tu reconnais ce que tu sais faire et les efforts que tu fournis. Une force peut être la patience, l’écoute, la créativité ou la persévérance.\n\nExercice : note deux forces personnelles et un exemple où tu les as utilisées.",ht:"Konfyans grandi lè ou rekonèt sa ou kapab fè ak efò ou fè. Yon fòs ka pasyans, kapasite pou koute, kreyativite oswa pèseverans.\n\nEgzèsis: ekri de fòs ou genyen ak yon egzanp kote ou te itilize yo.",en:"Confidence grows when you recognize what you can do and the effort you make. A strength may be patience, listening, creativity, or perseverance.\n\nExercise: write down two strengths and one example of when you used them."}},
-{title:{fr:"Avancer malgré les doutes",ht:"Avanse menm lè ou gen dout",en:"Moving forward despite doubts"},body:{fr:"Avoir des doutes ne signifie pas que tu es incapable. Tu peux commencer par une petite action, apprendre en chemin et ajuster ton plan.\n\nExercice : choisis une chose que tu repousses et définis la plus petite première étape possible.",ht:"Gen dout pa vle di ou pa kapab. Ou ka kòmanse ak yon ti aksyon, aprann pandan w ap avanse epi chanje plan ou si sa nesesè.\n\nEgzèsis: chwazi yon bagay ou toujou ranvwaye epi defini pi piti premye etap ou ka fè a.",en:"Having doubts does not mean you are incapable. You can begin with a small action, learn as you go, and adjust your plan.\n\nExercise: choose something you have been putting off and identify the smallest first step."}},
-{title:{fr:"Célébrer les petits progrès",ht:"Selebre ti pwogrè yo",en:"Celebrating small progress"},body:{fr:"La confiance se construit avec le temps. Remarquer tes efforts t’aide à voir le chemin parcouru, même si tout n’est pas parfait.\n\nExercice : note une petite avancée de cette semaine et ce qu’elle t’a appris.",ht:"Konfyans pran tan pou grandi. Remake efò ou ede w wè chemen ou deja fè, menm si tout bagay pa pafè.\n\nEgzèsis: ekri yon ti pwogrè ou fè semèn sa a ak sa li aprann ou.",en:"Confidence builds over time. Noticing your efforts helps you see how far you have come, even when things are not perfect.\n\nExercise: write down one small step forward from this week and what it taught you."}}
-],quiz:[
-{q:{fr:"Que peux-tu faire face au doute ?",ht:"Kisa ou ka fè lè ou gen dout?",en:"What can you do when you feel doubt?"},opts:{fr:["Ne jamais commencer","Faire un petit premier pas","Attendre d’être parfait"],ht:["Pa janm kòmanse","Fè yon ti premye pa","Tann ou vin pafè"],en:["Never start","Take a small first step","Wait until you are perfect"]},correct:1},
-{q:{fr:"Comment la confiance se développe-t-elle ?",ht:"Kijan konfyans devlope?",en:"How does confidence develop?"},opts:{fr:["En un seul jour seulement","Avec le temps et les efforts","En évitant toute difficulté"],ht:["Nan yon sèl jou sèlman","Avèk tan ak efò","Lè ou evite tout difikilte"],en:["In just one day","Over time and with effort","By avoiding every challenge"]},correct:1}
-]}
+const courses = [
+{
+id:"soi",price:500,emoji:"🌱",cover:"cover-1",
+title:{fr:"Prendre soin de soi, un jour à la fois",ht:"Pran swen tèt ou, yon jou alafwa",en:"Self-care, one day at a time"},
+description:{fr:"Apprends à comprendre tes émotions, respecter tes besoins et avancer avec douceur.",ht:"Aprann konprann emosyon ou, respekte bezwen ou epi avanse dousman.",en:"Learn to understand your emotions, respect your needs and move forward gently."},
+objective:{fr:"Reconnaître tes émotions, identifier tes besoins et choisir de petites actions de bien-être.",ht:"Rekonèt emosyon ou, idantifye bezwen ou epi chwazi ti aksyon pou byennèt ou.",en:"Recognize emotions, identify needs and choose small well-being actions."},
+lessons:[
+{title:{fr:"Écouter ses émotions",ht:"Koute emosyon ou",en:"Listening to your emotions"},body:{fr:"Les émotions sont des signaux, pas des ennemies. Prends un instant pour nommer ce que tu ressens sans te juger.\n\nExercice : nomme une émotion présente aujourd'hui et observe ce qui a pu la déclencher.",ht:"Emosyon yo se siyal, yo pa lènmi ou. Pran yon ti moman pou bay sa w santi a yon non san ou pa jije tèt ou.\n\nEgzèsis: nonmen yon emosyon ou santi jodi a epi reflechi sou sa ki te ka lakòz li.",en:"Emotions are signals, not enemies. Pause to name what you feel without judging yourself.\n\nExercise: name one emotion you feel today and notice what may have triggered it."}},
+{title:{fr:"Reconnaître ses besoins",ht:"Rekonèt bezwen ou",en:"Recognizing your needs"},body:{fr:"Tes besoins peuvent être physiques, émotionnels ou relationnels. Les reconnaître t'aide à mieux prendre soin de toi.\n\nExercice : demande-toi si tu as besoin de repos, de soutien, de mouvement ou d'un moment de calme.",ht:"Bezwen ou ka fizik, emosyonèl oswa gen rapò ak lòt moun. Rekonèt yo ede w pran swen tèt ou.\n\nEgzèsis: mande tèt ou si ou bezwen repo, sipò, mouvman oswa yon ti moman trankil.",en:"Your needs can be physical, emotional or relational. Recognizing them helps you care for yourself.\n\nExercise: ask whether you need rest, support, movement or a quiet moment."}},
+{title:{fr:"Créer une petite habitude",ht:"Kreye yon ti abitid",en:"Building a small habit"},body:{fr:"Prendre soin de soi ne demande pas toujours de grands changements. Une petite action répétée peut devenir une habitude utile.\n\nExercice : choisis une action de cinq minutes que tu peux essayer cette semaine.",ht:"Pran swen tèt ou pa toujou mande gwo chanjman. Yon ti aksyon ou repete ka vin yon bon abitid.\n\nEgzèsis: chwazi yon aksyon senk minit ou ka eseye semèn sa a.",en:"Self-care does not always require big changes. A small repeated action can become a helpful habit.\n\nExercise: choose one five-minute action to try this week."}}
+],
+quiz:{q:{fr:"Quelle est une bonne première étape pour prendre soin de soi ?",ht:"Ki yon bon premye etap pou pran swen tèt ou ?",en:"What is a good first step in self-care?"},options:{fr:["Ignorer ses émotions","Reconnaître ce que l'on ressent","Se comparer aux autres"],ht:["Inyore emosyon ou","Rekonèt sa ou santi","Konpare tèt ou ak lòt moun"],en:["Ignore your emotions","Recognize what you feel","Compare yourself with others"]},answer:1}
+},
+{
+id:"confiance",price:750,emoji:"🌟",cover:"cover-2",
+title:{fr:"Développer sa confiance en soi",ht:"Devlope konfyans nan tèt ou",en:"Building self-confidence"},
+description:{fr:"Découvre tes forces, dépasse progressivement tes doutes et reconnais ta valeur.",ht:"Dekouvri fòs ou, aprann fè fas ak dout ou epi rekonèt valè ou.",en:"Discover your strengths, work through doubts and recognize your worth."},
+objective:{fr:"Identifier tes forces, reconnaître tes pensées limitantes et agir avec plus d'assurance.",ht:"Idantifye fòs ou, rekonèt panse ki limite ou epi aji avèk plis konfyans.",en:"Identify your strengths, recognize limiting thoughts and act with more confidence."},
+lessons:[
+{title:{fr:"Reconnaître sa valeur",ht:"Rekonèt valè ou",en:"Recognizing your worth"},body:{fr:"Ta valeur ne dépend pas uniquement de tes résultats ou de l'opinion des autres. Tu peux apprendre, évoluer et rester digne de respect.\n\nExercice : note trois qualités ou efforts dont tu es fier.",ht:"Valè ou pa depann sèlman de rezilta ou oswa opinyon lòt moun. Ou ka aprann, grandi epi merite respè.\n\nEgzèsis: ekri twa kalite oswa efò ou fyè de yo.",en:"Your worth does not depend only on results or other people's opinions. You can learn, grow and deserve respect.\n\nExercise: write down three qualities or efforts you are proud of."}},
+{title:{fr:"Transformer le doute",ht:"Chanje fason ou wè dout",en:"Reframing self-doubt"},body:{fr:"Une pensée négative n'est pas toujours un fait. Cherche des éléments concrets et formule une pensée plus équilibrée.\n\nExercice : remplace « je ne suis pas capable » par une phrase réaliste et encourageante.",ht:"Yon panse negatif pa toujou yon reyalite. Chèche sa ki pwouve li epi eseye yon panse ki pi ekilibre.\n\nEgzèsis: ranplase « mwen pa kapab » ak yon fraz ki reyalis epi ankourajan.",en:"A negative thought is not always a fact. Look for evidence and try a more balanced thought.\n\nExercise: replace 'I can't do this' with a realistic, encouraging statement."}},
+{title:{fr:"Oser passer à l'action",ht:"Oze aji",en:"Daring to take action"},body:{fr:"La confiance se développe aussi par l'expérience. Commence par une action petite et réalisable, puis observe ce que tu apprends.\n\nExercice : choisis une action que tu repousses et définis la première étape.",ht:"Konfyans grandi tou atravè eksperyans. Kòmanse ak yon ti aksyon ki posib, epi gade sa ou aprann.\n\nEgzèsis: chwazi yon aksyon ou toujou ap ranvwaye epi defini premye etap la.",en:"Confidence also grows through experience. Start with a small, achievable action and notice what you learn.\n\nExercise: choose something you have been putting off and define the first step."}}
+],
+quiz:{q:{fr:"La confiance en soi peut se développer grâce à…",ht:"Konfyans nan tèt ou ka grandi grasa…",en:"Self-confidence can grow through…"},options:{fr:["La pratique et l'expérience","La comparaison permanente","L'absence totale de doute"],ht:["Pratik ak eksperyans","Konparezon san rete","Pa janm gen dout"],en:["Practice and experience","Constant comparison","Never having doubts"]},answer:0}
+},
+{
+id:"emotions",price:1000,emoji:"🧭",cover:"cover-3",
+title:{fr:"Comprendre et gérer ses émotions",ht:"Konprann epi jere emosyon ou",en:"Understanding and managing emotions"},
+description:{fr:"Apprends à repérer tes réactions et à choisir des réponses plus adaptées.",ht:"Aprann rekonèt reyaksyon ou epi chwazi repons ki pi apwopriye.",en:"Learn to notice your reactions and choose more helpful responses."},
+objective:{fr:"Repérer les déclencheurs, faire une pause et exprimer ses émotions de façon constructive.",ht:"Rekonèt sa ki deklanche emosyon yo, pran yon poz epi eksprime yo yon fason ki konstriktif.",en:"Identify triggers, pause and express emotions constructively."},
+lessons:[
+{title:{fr:"Nommer l'émotion",ht:"Bay emosyon an yon non",en:"Naming the emotion"},body:{fr:"Nommer une émotion aide à mieux comprendre ce qui se passe en soi. Tu peux ressentir plusieurs émotions à la fois.\n\nExercice : choisis un mot qui décrit ton émotion du moment.",ht:"Bay yon emosyon yon non ede w konprann sa k ap pase anndan ou. Ou ka santi plizyè emosyon an menm tan.\n\nEgzèsis: chwazi yon mo ki dekri emosyon ou kounye a.",en:"Naming an emotion can help you understand what is happening inside. You can feel several emotions at once.\n\nExercise: choose a word that describes your current emotion."}},
+{title:{fr:"Identifier les déclencheurs",ht:"Rekonèt sa ki deklanche emosyon yo",en:"Identifying triggers"},body:{fr:"Une situation, une pensée ou un souvenir peut déclencher une émotion. Observer le contexte permet de mieux comprendre sa réaction.\n\nExercice : note ce qui s'est passé juste avant une émotion forte.",ht:"Yon sitiyasyon, yon panse oswa yon souvni ka deklanche yon emosyon. Obsève kontèks la pou pi byen konprann reyaksyon ou.\n\nEgzèsis: ekri sa ki te pase anvan yon emosyon fò.",en:"A situation, thought or memory can trigger an emotion. Observing the context can help you understand your reaction.\n\nExercise: note what happened just before a strong emotion."}},
+{title:{fr:"Faire une pause",ht:"Pran yon poz",en:"Taking a pause"},body:{fr:"Quand une émotion devient intense, ralentir peut aider. Essaie de respirer calmement, de nommer ce que tu ressens et de choisir la suite.\n\nExercice : prends trois respirations lentes avant de répondre à une situation stressante.",ht:"Lè yon emosyon vin fò, ralanti ka ede w. Eseye respire dousman, rekonèt sa ou santi epi chwazi sa w ap fè apre.\n\nEgzèsis: pran twa souf dousman anvan ou reponn nan yon sitiyasyon estrès.",en:"When an emotion feels intense, slowing down may help. Breathe calmly, name what you feel and choose your next step.\n\nExercise: take three slow breaths before responding to a stressful situation."}}
+],
+quiz:{q:{fr:"Que peux-tu faire lorsqu'une émotion devient intense ?",ht:"Kisa ou ka fè lè yon emosyon vin fò ?",en:"What can you do when an emotion feels intense?"},options:{fr:["Réagir immédiatement","Faire une pause et respirer","Ignorer systématiquement"],ht:["Reponn tousuit","Pran yon poz epi respire","Toujou inyore li"],en:["React immediately","Pause and breathe","Always ignore it"]},answer:1}
+},
+{
+id:"limites",price:1500,emoji:"🪷",cover:"cover-4",
+title:{fr:"Poser ses limites et préserver son équilibre",ht:"Mete limit epi pwoteje ekilib ou",en:"Setting boundaries and protecting balance"},
+description:{fr:"Apprends à exprimer tes besoins, dire non avec respect et demander du soutien.",ht:"Aprann eksprime bezwen ou, di non avèk respè epi mande sipò.",en:"Learn to express needs, say no respectfully and ask for support."},
+objective:{fr:"Reconnaître ses limites, communiquer clairement et construire des habitudes plus équilibrées.",ht:"Rekonèt limit ou, kominike klèman epi devlope abitid ki pi ekilibre.",en:"Recognize limits, communicate clearly and build more balanced habits."},
+lessons:[
+{title:{fr:"Reconnaître ses limites",ht:"Rekonèt limit ou",en:"Recognizing your limits"},body:{fr:"Les limites aident à protéger ton temps, ton énergie et ton équilibre. Elles peuvent évoluer selon les situations.\n\nExercice : identifie une situation dans laquelle tu te sens dépassé.",ht:"Limit yo ede pwoteje tan ou, enèji ou ak ekilib ou. Yo ka chanje selon sitiyasyon an.\n\nEgzèsis: idantifye yon sitiyasyon kote ou santi ou depase.",en:"Boundaries help protect your time, energy and balance. They may change depending on the situation.\n\nExercise: identify one situation where you feel overwhelmed."}},
+{title:{fr:"Dire non avec respect",ht:"Di non avèk respè",en:"Saying no respectfully"},body:{fr:"Tu peux refuser une demande sans manquer de respect. Un message simple et clair peut suffire.\n\nExercice : prépare une phrase comme « Je ne peux pas m'engager sur cela pour le moment. »",ht:"Ou ka refize yon demann san ou pa manke respè. Yon mesaj senp epi klè ka sifi.\n\nEgzèsis: prepare yon fraz tankou « Mwen pa kapab pran angajman sa a pou kounye a. »",en:"You can decline a request respectfully. A simple, clear message may be enough.\n\nExercise: prepare a sentence such as 'I can't commit to that right now.'"}},
+{title:{fr:"Demander de l'aide",ht:"Mande èd",en:"Asking for help"},body:{fr:"Demander du soutien est une démarche constructive, pas un échec. Choisis une personne de confiance et explique ce dont tu as besoin.\n\nExercice : identifie une personne ou un service auquel tu pourrais t'adresser.",ht:"Mande sipò se yon aksyon pozitif, se pa yon echèk. Chwazi yon moun ou fè konfyans epi esplike sa ou bezwen.\n\nEgzèsis: idantifye yon moun oswa yon sèvis ou ta ka kontakte.",en:"Asking for support is constructive, not a failure. Choose someone you trust and explain what you need.\n\nExercise: identify a person or service you could reach out to."}}
+],
+quiz:{q:{fr:"Poser une limite signifie…",ht:"Mete yon limit vle di…",en:"Setting a boundary means…"},options:{fr:["Manquer de respect à tout le monde","Exprimer clairement ses besoins et capacités","Ne jamais aider les autres"],ht:["Manke respè pou tout moun","Eksprime bezwen ak kapasite ou klèman","Pa janm ede lòt moun"],en:["Disrespecting everyone","Clearly expressing your needs and capacity","Never helping others"]},answer:1}
+}
 ];
 
-const STORAGE_KEY="awaswen_learning_v1";
-let state={};
-let language="fr";
-let activeCourse=null;
-let activeLesson=0;
-let quizFeedback="";
+const STORAGE_KEY = "awaswen_professional_v2";
+let lang = "fr";
+let activeCourse = null;
+let data = loadData();
 
-function loadState(){
- try{state=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");}
- catch(e){state={};}
-}
-function saveState(){
- try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}
- catch(e){alert("La sauvegarde locale est indisponible dans ce navigateur.");}
-}
-function t(key){return (translations[language]||translations.fr)[key]||translations.fr[key]||key;}
-function localized(obj){return obj[language]||obj.fr;}
-function getCourseState(id){
- if(!state[id])state[id]={done:[],reflections:{},quizBest:null};
- return state[id];
-}
-function courseDone(course){
- return getCourseState(course.id).done.length;
-}
-function percent(course){
- return Math.round(courseDone(course)/course.lessons.length*100);
-}
-function allLessons(){return courseData.reduce((sum,c)=>sum+c.lessons.length,0);}
-function totalDone(){return courseData.reduce((sum,c)=>sum+courseDone(c),0);}
-
-function renderHome(){
- document.getElementById("home").classList.remove("hidden");
- document.getElementById("coursePage").classList.add("hidden");
- const grid=document.getElementById("courseGrid");
- grid.innerHTML="";
- courseData.forEach(course=>{
-  const p=percent(course);
-  const card=document.createElement("article");
-  card.className="course-card";
-  card.innerHTML=`
-   <div class="course-icon">${course.icon}</div>
-   <h3>${escapeHTML(t(course.titleKey))}</h3>
-   <p>${escapeHTML(t(course.descKey))}</p>
-   <div class="course-meta"><span class="price">${course.price}</span><span class="progress-label">${courseDone(course)}/${course.lessons.length} ${t("lessons")}</span></div>
-   <div class="progress-track"><div class="progress-fill" style="width:${p}%"></div></div>
-   <div class="course-meta"><span class="progress-label">${p}%</span><button class="btn" onclick="openCourse('${course.id}')">${courseDone(course)>0?t("continue"):t("open")}</button></div>`;
-  grid.appendChild(card);
- });
- const total=allLessons(),done=totalDone(),p=Math.round(done/total*100);
- document.getElementById("overallLabel").textContent=p+"%";
- document.getElementById("overallFill").style.width=p+"%";
- document.getElementById("overallDetail").textContent=done+" / "+total+" "+t("lessons")+" "+t("done");
-}
-function openCourse(id){
- activeCourse=courseData.find(c=>c.id===id);
- if(!activeCourse)return;
- activeLesson=0;quizFeedback="";
- document.getElementById("home").classList.add("hidden");
- document.getElementById("coursePage").classList.remove("hidden");
- renderCourse();
- window.scrollTo({top:0,behavior:"smooth"});
-}
-function renderCourse(){
- if(!activeCourse)return;
- const c=activeCourse,cs=getCourseState(c.id),p=percent(c);
- document.getElementById("courseIcon").textContent=c.icon;
- document.getElementById("courseTitle").textContent=t(c.titleKey);
- document.getElementById("courseDescription").textContent=t(c.descKey);
- document.getElementById("courseLessonCount").textContent=c.lessons.length+" "+t("lessons");
- document.getElementById("courseProgressLabel").textContent=p+"% "+t("courseProgress").toLowerCase();
- document.getElementById("courseProgressFill").style.width=p+"%";
- const list=document.getElementById("lessonList");
- list.innerHTML="";
- c.lessons.forEach((lesson,i)=>{
-  const done=cs.done.includes(i);
-  const row=document.createElement("div");
-  row.className="lesson-row";
-  row.innerHTML=`<div class="lesson-number">${done?"✓":i+1}</div><div class="lesson-info"><h3>${escapeHTML(localized(lesson.title))}</h3><p>${done?t("completed"):t("notCompleted")}</p></div><button class="btn small ${done?"secondary":""}" onclick="openLesson(${i})">${activeLesson===i?t("continue"):t("open")}</button>`;
-  list.appendChild(row);
- });
- if(cs.done.length===c.lessons.length){
-  document.getElementById("lessonContent").innerHTML=`<div class="success">${escapeHTML(t("allComplete"))}</div>`;
- } else renderLesson();
-}
-function renderLesson(){
- const c=activeCourse,lesson=c.lessons[activeLesson],cs=getCourseState(c.id);
- if(!lesson)return;
- const done=cs.done.includes(activeLesson);
- const reflection=cs.reflections[activeLesson]||"";
- const body=document.getElementById("lessonContent");
- body.innerHTML=`
- <article class="lesson-body">
-  <div class="eyebrow">${escapeHTML(t("lesson"))} ${activeLesson+1} / ${c.lessons.length}</div>
-  <h2>${escapeHTML(localized(lesson.title))}</h2>
-  <p class="lesson-text">${escapeHTML(t("lessonIntro"))}</p>
-  <div class="lesson-text">${escapeHTML(localized(lesson.body))}</div>
-  <hr style="border:0;border-top:1px solid var(--border);margin:24px 0">
-  <h3>${escapeHTML(t("reflection"))}</h3>
-  <p class="progress-label">${escapeHTML(t("reflectionPrompt"))}</p>
-  <textarea class="reflection" id="reflectionInput" placeholder="${escapeHTML(t("reflectionPrompt"))}">${escapeHTML(reflection)}</textarea>
-  <button class="btn secondary" style="margin-top:10px" onclick="saveReflection()">${escapeHTML(t("saveReflection"))}</button>
-  <div id="reflectionMessage" aria-live="polite"></div>
-  <hr style="border:0;border-top:1px solid var(--border);margin:24px 0">
-  <h3>${escapeHTML(t("quizTitle"))}</h3>
-  <p class="progress-label">${escapeHTML(t("quizText"))}</p>
-  <div id="quizArea"></div>
-  <div id="quizMessage" aria-live="polite">${quizFeedback}</div>
-  <button class="btn" style="margin-top:12px" onclick="checkQuiz()">${escapeHTML(t("checkAnswers"))}</button>
-  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
-   <button class="btn ${done?"secondary":""}" onclick="markLessonDone()">${done?"✓ "+escapeHTML(t("completed")):escapeHTML(t("markDone"))}</button>
-   ${activeLesson>0?`<button class="btn light" onclick="openLesson(${activeLesson-1})">${escapeHTML(t("previous"))}</button>`:""}
-   ${activeLesson<c.lessons.length-1?`<button class="btn light" onclick="openLesson(${activeLesson+1})">${escapeHTML(t("next"))}</button>`:""}
-  </div>
- </article>`;
- renderQuiz();
-}
-function renderQuiz(){
- const area=document.getElementById("quizArea");
- if(!area||!activeCourse)return;
- area.innerHTML="";
- activeCourse.quiz.forEach((q,i)=>{
-  const field=document.createElement("fieldset");
-  field.style.cssText="border:0;padding:0;margin:18px 0";
-  const legend=document.createElement("legend");
-  legend.style.fontWeight="700";
-  legend.textContent=(i+1)+". "+localized(q.q);
-  field.appendChild(legend);
-  localized(q.opts).forEach((opt,j)=>{
-   const label=document.createElement("label");
-   label.className="quiz-option";
-   label.innerHTML=`<input type="radio" name="quiz${i}" value="${j}"><span>${escapeHTML(opt)}</span>`;
-   field.appendChild(label);
-  });
-  area.appendChild(field);
- });
-}
-function checkQuiz(){
- const c=activeCourse;
- if(!c)return;
- let score=0;
- for(let i=0;i<c.quiz.length;i++){
-  const selected=document.querySelector(`input[name="quiz${i}"]:checked`);
-  if(!selected){
-   document.getElementById("quizMessage").textContent=t("quizNoAnswer");
-   return;
+function loadData() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    return { completed: saved.completed || {}, reflections: saved.reflections || {}, journal: saved.journal || "" };
+  } catch (e) {
+    return { completed: {}, reflections: {}, journal: "" };
   }
-  if(Number(selected.value)===c.quiz[i].correct)score++;
- }
- const cs=getCourseState(c.id);
- const pct=Math.round(score/c.quiz.length*100);
- cs.quizBest=Math.max(cs.quizBest||0,pct);
- saveState();
- quizFeedback=t("quizResult")+": "+score+"/"+c.quiz.length+" ("+pct+"%). "+(score===c.quiz.length?t("quizPass"):t("tryAgain"));
- document.getElementById("quizMessage").textContent=quizFeedback;
 }
-function markLessonDone(){
- const cs=getCourseState(activeCourse.id);
- if(!cs.done.includes(activeLesson))cs.done.push(activeLesson);
- saveState();
- const isLast=cs.done.length===activeCourse.lessons.length;
- renderCourse();
- if(isLast){
-  document.getElementById("lessonContent").scrollIntoView({behavior:"smooth",block:"start"});
- }
+function saveData() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    return true;
+  } catch (e) {
+    alert("L'enregistrement local n'est pas disponible sur ce navigateur.");
+    return false;
+  }
 }
-function saveReflection(){
- const input=document.getElementById("reflectionInput");
- if(!input||!activeCourse)return;
- getCourseState(activeCourse.id).reflections[activeLesson]=input.value;
- saveState();
- const message=document.getElementById("reflectionMessage");
- message.className="success";
- message.textContent=t("reflectionSaved");
+function t(key) { return (translations[lang] && translations[lang][key]) || translations.fr[key] || key; }
+function localized(value) { return value[lang] || value.fr || ""; }
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[char]);
 }
-function openLesson(index){
- if(!activeCourse||index<0||index>=activeCourse.lessons.length)return;
- activeLesson=index;quizFeedback="";
- renderCourse();
- document.getElementById("lessonContent").scrollIntoView({behavior:"smooth",block:"start"});
+function money(price) {
+  const usd = (price / 132).toFixed(2);
+  return `${price.toLocaleString("fr-FR")} HTG`;
 }
-function goHome(){
- activeCourse=null;quizFeedback="";
- document.getElementById("home").classList.remove("hidden");
- document.getElementById("coursePage").classList.add("hidden");
- renderHome();
- window.scrollTo({top:0,behavior:"smooth"});
+function completedCount(course) {
+  return (data.completed[course.id] || []).length;
 }
-function setLanguage(lang){
- language=translations[lang]?lang:"fr";
- document.documentElement.lang=language==="ht"?"ht":language;
- document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=t(el.dataset.i18n);});
- if(activeCourse)renderCourse();
- renderHome();
+function coursePercent(course) {
+  return Math.round(completedCount(course) / course.lessons.length * 100);
 }
-function escapeHTML(value){
- return String(value).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+function renderCourses() {
+  document.getElementById("course-grid").innerHTML = courses.map((c, i) => `
+    <article class="course-card">
+      <div class="course-cover ${c.cover}">
+        <div><div class="course-number">0${i+1} / AWASWEN</div><p style="font-size:12px;color:#426d69;margin:8px 0 0">${escapeHTML(t("course"))}</p></div>
+        <div class="course-emoji" aria-hidden="true">${c.emoji}</div>
+      </div>
+      <div class="course-body">
+        <div class="pills"><span class="pill">${escapeHTML(t("level"))}</span><span class="pill">${escapeHTML(t("duration"))}</span></div>
+        <h3>${escapeHTML(localized(c.title))}</h3>
+        <p>${escapeHTML(localized(c.description))}</p>
+        <div style="font-size:12px;font-weight:750">${escapeHTML(t("overall"))}: ${coursePercent(c)}%</div>
+        <div class="progress-track"><div class="progress-fill" style="width:${coursePercent(c)}%"></div></div>
+        <div class="course-bottom">
+          <div class="price">${money(c.price)}<small>≈ $${(c.price/132).toFixed(2)} USD · ${escapeHTML(t("priceNote"))}</small></div>
+          <button class="btn btn-primary btn-small" onclick="openCourse('${c.id}')">${escapeHTML(t("view"))} →</button>
+        </div>
+      </div>
+    </article>`).join("");
+  updateDashboard();
 }
-document.getElementById("year").textContent=new Date().getFullYear();
-loadState();
+function updateDashboard() {
+  const total = courses.reduce((sum, c) => sum + c.lessons.length, 0);
+  const completed = courses.reduce((sum, c) => sum + completedCount(c), 0);
+  document.getElementById("completed-count").textContent = completed;
+  document.getElementById("overall-percent").textContent = Math.round(completed / total * 100) + "%";
+  document.getElementById("overall-fill").style.width = Math.round(completed / total * 100) + "%";
+}
+function openCourse(id) {
+  activeCourse = courses.find(c => c.id === id);
+  if (!activeCourse) return;
+  document.getElementById("course-view").style.display = "block";
+  document.getElementById("course-detail").innerHTML = `
+    <div class="panel">
+      <div class="pills"><span class="pill">${escapeHTML(t("level"))}</span><span class="pill">${escapeHTML(t("duration"))}</span></div>
+      <h2>${escapeHTML(localized(activeCourse.title))}</h2>
+      <p style="color:var(--muted)">${escapeHTML(localized(activeCourse.description))}</p>
+      <h3>${escapeHTML(t("objectives"))}</h3>
+      <p>${escapeHTML(localized(activeCourse.objective))}</p>
+      <div class="progress-track"><div class="progress-fill" style="width:${coursePercent(activeCourse)}%"></div></div>
+      <div class="progress-caption">${coursePercent(activeCourse)}% · ${completedCount(activeCourse)}/${activeCourse.lessons.length}</div>
+      <h3 style="margin-top:28px">${escapeHTML(t("course"))}</h3>
+      <div class="lesson-list">${activeCourse.lessons.map((lesson,i) => {
+        const done = (data.completed[activeCourse.id] || []).includes(i);
+        return `<article class="lesson">
+          <input type="checkbox" id="lesson-${i}" ${done?"checked":""} onchange="toggleLesson(${i},this.checked)" aria-label="${escapeHTML(t("markDone"))}">
+          <div style="flex:1"><strong>${escapeHTML(t("lesson"))} ${i+1} — ${escapeHTML(localized(lesson.title))}</strong>
+          <div class="lesson-content">${escapeHTML(localized(lesson.body))}</div>
+          <div style="margin-top:12px"><label for="reflection-${i}" style="font-size:12px;font-weight:750">${escapeHTML(t("reflection"))}</label>
+          <textarea id="reflection-${i}" data-reflection="${i}" placeholder="${escapeHTML(t("reflectionPlaceholder"))}">${escapeHTML(data.reflections[activeCourse.id+"-"+i] || "")}</textarea>
+          <button class="btn btn-soft btn-small" style="margin-top:8px" onclick="saveReflection(${i})">${escapeHTML(t("save"))}</button>
+          <span id="reflection-status-${i}" class="progress-caption"></span></div>
+          </div>
+        </article>`;
+      }).join("")}</div>
+      <div class="panel" style="margin-top:25px;background:#f8fcfa">
+        <h3>${escapeHTML(t("quiz"))}</h3>
+        <p>${escapeHTML(localized(activeCourse.quiz.q))}</p>
+        <div class="quiz-question">${activeCourse.quiz.options[lang].map((option,i) =>
+          `<label><input type="radio" name="quiz-answer" value="${i}"> ${escapeHTML(option)}</label>`
+        ).join("")}</div>
+        <button class="btn btn-primary" onclick="checkQuiz()">${escapeHTML(t("check"))}</button>
+        <div id="quiz-message" class="message" role="status"></div>
+      </div>
+      <div class="panel" style="margin-top:20px">
+        <h3>${escapeHTML(t("purchase"))}</h3>
+        <div class="price">${money(activeCourse.price)} <small>≈ $${(activeCourse.price/132).toFixed(2)} USD</small></div>
+        <p style="color:var(--muted);font-size:13px">${escapeHTML(t("paymentNote"))}</p>
+        <button class="btn btn-outline" onclick="paymentInfo()">${escapeHTML(t("purchase"))}</button>
+        <div id="payment-message" class="message" role="status"></div>
+      </div>
+    </div>`;
+  document.getElementById("course-view").scrollIntoView({behavior:"smooth"});
+}
+function toggleLesson(index, checked) {
+  if (!activeCourse) return;
+  if (!data.completed[activeCourse.id]) data.completed[activeCourse.id] = [];
+  const list = data.completed[activeCourse.id];
+  if (checked && !list.includes(index)) list.push(index);
+  if (!checked) data.completed[activeCourse.id] = list.filter(n => n !== index);
+  saveData();
+  renderCourses();
+  const view = document.getElementById("course-view");
+  if (view.style.display !== "none") {
+    const percent = coursePercent(activeCourse);
+    const track = document.querySelector("#course-detail .progress-fill");
+    if (track) track.style.width = percent + "%";
+    const caption = document.querySelector("#course-detail .progress-caption");
+    if (caption && !caption.id) caption.textContent = `${percent}% · ${completedCount(activeCourse)}/${activeCourse.lessons.length}`;
+  }
+}
+function saveReflection(index) {
+  const field = document.getElementById("reflection-" + index);
+  if (!field || !activeCourse) return;
+  data.reflections[activeCourse.id+"-"+index] = field.value;
+  saveData();
+  const status = document.getElementById("reflection-status-" + index);
+  if (status) status.textContent = t("savedReflection");
+}
+function checkQuiz() {
+  if (!activeCourse) return;
+  const selected = document.querySelector('input[name="quiz-answer"]:checked');
+  const message = document.getElementById("quiz-message");
+  if (!selected) { message.textContent = t("answerAll"); return; }
+  message.textContent = Number(selected.value) === activeCourse.quiz.answer ? t("correct") : t("incorrect");
+  message.style.color = Number(selected.value) === activeCourse.quiz.answer ? "var(--primary)" : "#a34a38";
+}
+function paymentInfo() {
+  const message = document.getElementById("payment-message");
+  if (message) message.textContent = t("paymentNote");
+}
+document.getElementById("back-courses").addEventListener("click", () => {
+  document.getElementById("course-view").style.display = "none";
+  document.getElementById("formations").scrollIntoView({behavior:"smooth"});
+});
+document.getElementById("save-journal").addEventListener("click", () => {
+  data.journal = document.getElementById("journal").value;
+  if (saveData()) document.getElementById("journal-status").textContent = t("saved");
+});
+document.getElementById("language").addEventListener("change", e => setLanguage(e.target.value));
+
+function setLanguage(nextLang) {
+  lang = translations[nextLang] ? nextLang : "fr";
+  document.documentElement.lang = lang === "ht" ? "ht" : lang;
+  document.getElementById("language").value = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (t(key)) el.innerHTML = t(key);
+  });
+  document.querySelectorAll("[data-placeholder]").forEach(el => {
+    el.placeholder = t(el.dataset.placeholder);
+  });
+  document.getElementById("journal").value = data.journal || "";
+  renderCourses();
+  if (activeCourse) openCourse(activeCourse.id);
+}
+document.getElementById("year").textContent = new Date().getFullYear();
 setLanguage("fr");
 </script>
 </body>
