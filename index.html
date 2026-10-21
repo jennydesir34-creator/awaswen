@@ -360,6 +360,7 @@
 
 <script>
   
+
 function preparerAchat(formationId) {
   const formations = {
     "formation-bien-etre": {
@@ -381,17 +382,19 @@ function preparerAchat(formationId) {
   };
 
   const formation = formations[formationId];
-  const message = document.getElementById("message-paiement");
 
-  if (!formation || !message) {
+  if (!formation) {
+    alert("Formation introuvable. Vérifie le bouton sélectionné.");
     return;
   }
 
-  message.textContent =
+  alert(
     "Formation sélectionnée : " + formation.nom +
-    " — Prix : " + formation.prix.toLocaleString("fr-FR") +
-    " HTG. Le paiement sécurisé sera disponible après la configuration de Tranzak.";
+    "\nPrix : " + formation.prix.toLocaleString("fr-FR") +
+    " HTG\n\nLe paiement sécurisé sera disponible après l'activation de Tranzak."
+  );
 }
+
 
 </script>
 
